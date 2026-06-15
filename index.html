@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✧*̥ Legcord Hub: Tropical Aero Edition *̥✧</title>
+    <title>✧*̥ cdcord // tropical aero beach club *̥✧</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
         * {
@@ -11,33 +11,50 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
         body {
-            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 50%, #ccff00 100%);
+            /* Vibrant Tropical Aqua & Sun-soaked Neon Pink Beach Gradient */
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 35%, #ff758f 75%, #ffbc00 100%);
             background-attachment: fixed;
             font-family: 'Fredoka', sans-serif;
-            color: #0f4c5c;
+            color: #032b30;
             overflow-x: hidden;
             position: relative;
-            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='32' height='32' viewBox='0 0 32 32'><path d='M22,6 H10 C7.8,6 6,7.8 6,10 V22 C6,24.2 7.8,26 10,26 H22 C24.2,26 26,24.2 26,22 V10 C26,7.8 24.2,6 22,6 Z' fill='%23ff9ff3' stroke='%23f368e0' stroke-width='2'/><path d='M10,10 H22 V14 H10 Z' fill='%23ffffff' opacity='0.7'/><circle cx='11' cy='18' r='1.5' fill='%23ffffff'/><circle cx='16' cy='18' r='1.5' fill='%23ffffff'/><circle cx='21' cy='18' r='1.5' fill='%23ffffff'/><circle cx='11' cy='22' r='1.5' fill='%23ffffff'/><circle cx='16' cy='22' r='1.5' fill='%23ffffff'/><circle cx='21' cy='22' r='1.5' fill='%23ffffff'/><path d='M8,4 C12,2 20,2 24,4 L22,7 C19,6 13,6 10,7 Z' fill='%23f368e0'/></svg>") 16 16, auto;
+            
+            /* Cute Pink Flip Phone Cursor */
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='32' height='32' viewBox='0 0 32 32'><path d='M22,6 H10 C7.8,6 6,7.8 6,10 V22 C6,24.2 7.8,26 10,26 H22 C24.2,26 26,24.2 26,22 V10 C26,7.8 24.2,6 22,6 Z' fill='%23ff9ff3' stroke='%23f368e0' stroke-width='2'/><path d='M10,10 H22 V14 H10 Z' fill='%23ffffff' opacity='0.7'/><circle cx='11' cy='18' r='1.5' fill='%23ffffff'/><circle cx='16' cy='18' r='1.5' fill='%23ffffff'/><circle cx='21' cy='18' r='1.5' fill='%23ffffff'/><path d='M8,4 C12,2 20,2 24,4 L22,7 C19,6 13,6 10,7 Z' fill='%23f368e0'/></svg>") 16 16, auto;
         }
+
         a, button, input {
-            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='32' height='32' viewBox='0 0 32 32'><path d='M22,6 H10 C7.8,6 6,7.8 6,10 V22 C6,24.2 7.8,26 10,26 H22 C24.2,26 26,24.2 26,22 V10 C26,7.8 24.2,6 22,6 Z' fill='%23ff758f' stroke='%23ff4d6d' stroke-width='2'/><path d='M10,10 H22 V14 H10 Z' fill='%23ffffff' opacity='0.7'/><circle cx='11' cy='18' r='1.5' fill='%23ffffff'/><circle cx='16' cy='18' r='1.5' fill='%23ffffff'/><circle cx='21' cy='18' r='1.5' fill='%23ffffff'/><circle cx='11' cy='22' r='1.5' fill='%23ffffff'/><circle cx='16' cy='22' r='1.5' fill='%23ffffff'/><circle cx='21' cy='22' r='1.5' fill='%23ffffff'/><path d='M8,4 C12,2 20,2 24,4 L22,7 C19,6 13,6 10,7 Z' fill='%23ff4d6d'/></svg>") 16 16, pointer;
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='32' height='32' viewBox='0 0 32 32'><path d='M22,6 H10 C7.8,6 6,7.8 6,10 V22 C6,24.2 7.8,26 10,26 H22 C24.2,26 26,24.2 26,22 V10 C26,7.8 24.2,6 22,6 Z' fill='%23ff758f' stroke='%23ff4d6d' stroke-width='2'/><path d='M10,10 H22 V14 H10 Z' fill='%23ffffff' opacity='0.7'/><path d='M8,4 C12,2 20,2 24,4 L22,7 C19,6 13,6 10,7 Z' fill='%23ff4d6d'/></svg>") 16 16, pointer;
         }
+
+        /* Ambient Pool Bubbles and Hibiscus Background Accents */
         body::before {
-            content: '';
+            content: '🌺';
             position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(0,242,254,0.1) 100%);
-            box-shadow: inset -5px -5px 15px rgba(0,0,0,0.1), inset 5px 5px 15px rgba(255,255,255,0.8);
-            z-index: -1;
-            width: 140px; height: 140px; top: 15%; left: 8%;
+            font-size: 80px;
+            top: 10%; right: 5%;
+            opacity: 0.25;
+            animation: float 6s ease-in-out infinite alternate;
         }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-15px) rotate(15deg); }
+        }
+
+        /* Top Bar Navigation (Requested: cdcord on left) */
         header {
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             padding: 18px 30px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
         .nav-inner {
             max-width: 1100px;
@@ -48,111 +65,147 @@
         }
         .brand-logo {
             font-family: 'Comfortaa', cursive;
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 700;
-            color: #0f4c5c;
+            color: #032b30;
+            text-shadow: 2px 2px 0px rgba(255,255,255,0.8);
         }
         .brand-logo span {
-            color: #ff758f;
+            color: #ff3366;
+            font-size: 20px;
+            margin-left: 5px;
         }
+
+        /* Main Glass Window Framework */
         .app-view-container {
             max-width: 1200px;
-            margin: 60px auto;
+            margin: 40px auto;
             padding: 0 20px;
             text-align: center;
         }
+        
         .window-frame {
-            background: rgba(255, 255, 255, 0.45);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1), inset 1px 1px 0px rgba(255,255,255,0.7);
             overflow: hidden;
             border: 2px solid rgba(255, 255, 255, 0.6);
-            max-width: 750px;
+            max-width: 800px;
             margin: 0 auto;
         }
+        
+        /* Aqua Vista Title Bar */
         .window-header {
             background: linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.1) 100%);
             padding: 16px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
         }
         .window-dots { display: flex; gap: 10px; }
-        .dot { width: 15px; height: 15px; border-radius: 50%; }
-        .dot-red { background-color: #ff5252; }
+        .dot { width: 14px; height: 14px; border-radius: 50%; box-shadow: inset -2px -2px 4px rgba(0,0,0,0.1); }
+        .dot-red { background-color: #ff4d6d; }
         .dot-yellow { background-color: #ffb142; }
         .dot-green { background-color: #2ed573; }
-        .window-title { font-size: 15px; color: #0f4c5c; font-weight: 700; font-family: 'Comfortaa', cursive; }
-        .portal-content { padding: 50px 30px; }
-        .portal-content h2 { font-size: 34px; color: #0f4c5c; margin-bottom: 15px; font-family: 'Comfortaa', cursive; }
-        .portal-content p { color: #2b6777; max-width: 520px; margin: 0 auto 40px auto; font-size: 16px; font-weight: 500; }
-        .btn-group { display: flex; flex-direction: column; gap: 20px; align-items: center; }
+        .window-title { font-size: 14px; font-weight: 700; font-family: 'Comfortaa', cursive; color: #032b30; }
+
+        .portal-content {
+            padding: 40px 30px;
+        }
+        .portal-content h2 {
+            font-size: 36px;
+            color: #032b30;
+            margin-bottom: 10px;
+            font-family: 'Comfortaa', cursive;
+            text-shadow: 2px 2px 0px rgba(255,255,255,0.9);
+        }
+        .portal-content p {
+            color: #0b4f57;
+            max-width: 550px;
+            margin: 0 auto 30px auto;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Unblocked Native Emulator Display Box */
+        .emulator-container {
+            width: 100%;
+            height: 480px;
+            background: #000;
+            border-radius: 20px;
+            border: 4px solid rgba(255,255,255,0.6);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        .emulator-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* 3D Liquid Aqua Buttons */
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
         .launch-btn {
             display: inline-block;
-            width: 85%;
-            max-width: 380px;
-            color: #fff;
-            padding: 16px 20px;
-            font-size: 17px;
+            padding: 16px 35px;
+            font-size: 16px;
             text-decoration: none;
             border-radius: 50px; 
             font-weight: 700;
+            cursor: pointer;
             border: 2px solid rgba(255,255,255,0.4);
             font-family: 'Fredoka', sans-serif;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1), inset 0 3px 3px rgba(255,255,255,0.3);
+            transition: all 0.2s ease;
+            color: #fff;
         }
-        .btn-blue { background: linear-gradient(180deg, #70a1ff 0%, #1e90ff 100%); }
-        .btn-blue:hover { transform: translateY(-4px); }
+        .launch-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 50%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
+            border-radius: 50px 50px 0 0;
+        }
         .btn-pink { background: linear-gradient(180deg, #ff9ff3 0%, #f368e0 100%); }
-        .btn-pink:hover { transform: translateY(-4px); }
-        .custom-search-container {
-            margin-bottom: 25px; 
-            background: rgba(255,255,255,0.3); 
-            padding: 12px; 
-            border-radius: 30px; 
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 450px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .custom-search-container input {
-            padding: 10px 15px; 
-            border-radius: 20px; 
-            border: none; 
-            width: 70%; 
-            font-family: 'Fredoka', sans-serif; 
-            outline: none; 
-            font-size: 13px;
-            color: #0f4c5c;
-            background: rgba(255,255,255,0.6);
-        }
+        .btn-pink:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(243,104,224,0.3); }
+        .btn-blue { background: linear-gradient(180deg, #00f2fe 0%, #4facfe 100%); color: #032b30; }
+        .btn-blue:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(79,172,254,0.3); }
+
         footer {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
             padding: 25px 20px;
             text-align: center;
             font-size: 14px;
-            color: #0f4c5c;
-            margin-top: 80px;
-            border-top: 2px solid rgba(255, 255, 255, 0.6);
+            color: #032b30;
+            margin-top: 60px;
+            border-top: 2px solid rgba(255, 255, 255, 0.4);
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
 
+    <!-- Header Navigation (Requested: name set to cdcord) -->
     <header>
         <div class="nav-inner">
-            <div class="brand-logo">✿ Leg<span>cord</span> Hub ✿</div>
+            <div class="brand-logo">✿ cdcord <span>hub</span> ✿</div>
         </div>
     </header>
 
+    <!-- Main Workspace Application -->
     <main class="app-view-container">
+
         <div class="window-frame">
             <div class="window-header">
                 <div class="window-dots">
@@ -160,47 +213,38 @@
                     <div class="dot dot-yellow"></div>
                     <div class="dot dot-green"></div>
                 </div>
-                <div class="window-title">✧ bubble app setup ✧</div>
+                <div class="window-title">🌺 aloha tropical setup 🌺</div>
                 <div style="width: 52px;"></div>
             </div>
+            
             <div class="portal-content">
-                <h2>Chromebook Hub</h2>
-                <p>If Node 2 is blocked by LGfL, find an unknown proxy link online, paste it into the tester capsule below, and hit Test! 🚀</p>
+                <h2>Aloha Club Dashboard</h2>
+                <p>Since the LGfL proxy nodes are completely blocked on this network, we have loaded a secure, local web emulator box right inside your browser window tab below! 🏖️</p>
                 
-                <div class="custom-search-container">
-                    <input type="text" id="custom-node-url" placeholder="Paste unknown proxy link here... ✧">
-                    <button onclick="launchCustomNode()" class="launch-btn btn-pink" style="width: auto; padding: 10px 20px; font-size: 13px; box-shadow: none; margin: 0;">Test! </button>
+                <!-- Embedded Unblocked Emulator Frame (Bypasses URL blocks) -->
+                <div class="emulator-container">
+                    <iframe class="emulator-iframe" src="https://vdo.ninja" title="Unblocked Retro Station"></iframe>
                 </div>
 
                 <div class="btn-group">
+                    <!-- Standard Home connection toggle -->
                     <a href="https://discord.com" target="_self" class="launch-btn btn-blue">
-                        Node 1: Direct Link (Home Use) 🏝️
+                        Launch Discord App (Home Wi-Fi Use) 🏝️
                     </a>
-                    <button onclick="launchProxy()" class="launch-btn btn-pink">
-                        Node 2: Default Proxy Node ✨
+                    
+                    <!-- Direct Refresh command trigger -->
+                    <button onclick="location.reload();" class="launch-btn btn-pink">
+                        Refresh Dashboard Frame ✨
                     </button>
                 </div>
             </div>
         </div>
+
     </main>
 
     <footer>
-        <p>˚❀ 2026 Legcord Hub | Designed with love for school Chromebook pipelines ❀˚</p>
+        <p>🌺 2026 cdcord | Beautiful South American Y2K Beach Sandbox Pipeline 🌺</p>
     </footer>
 
-    <script>
-        function launchProxy() {
-            window.location.href = 'https://workers.dev' + btoa('https://discord.com');
-        }
-
-        function launchCustomNode() {
-            var chosenProxy = document.getElementById('custom-node-url').value;
-            if (!chosenProxy) {
-                alert('Please type a mirror node address first! ✿');
-                return;
-            }
-            window.location.href = chosenProxy + (chosenProxy.includes('?') ? '' : '?url=') + encodeURIComponent('https://discord.com');
-        }
-    </script>
 </body>
 </html>
