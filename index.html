@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legcord Client Hub - Lightweight & Custom</title>
+    <title>Legcord Client Hub - Lightweight Custom Client</title>
     <style>
         /* Modern UI Design & Color Themes */
         * {
@@ -40,7 +40,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         .nav-inner {
             max-width: 1200px;
@@ -53,6 +53,7 @@
             font-size: 24px;
             font-weight: 800;
             letter-spacing: -0.5px;
+            color: var(--text-white);
         }
         .brand-logo span {
             color: var(--discord-blue);
@@ -136,11 +137,38 @@
             color: var(--text-gray);
             font-weight: 500;
         }
-        .web-viewport {
-            width: 100%;
-            height: 750px;
+
+        /* Direct Action Button Portal styling */
+        .portal-content {
+            padding: 80px 20px;
+        }
+        .portal-content h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        .portal-content p {
+            color: var(--text-gray);
+            max-width: 550px;
+            margin: 0 auto 35px auto;
+            font-size: 16px;
+        }
+        .launch-btn {
+            display: inline-block;
+            background-color: var(--discord-blue);
+            color: var(--text-white);
+            padding: 16px 45px;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 700;
+            transition: background-color 0.2s, transform 0.2s;
+            cursor: pointer;
             border: none;
-            background-color: var(--bg-dark-700);
+        }
+        .launch-btn:hover {
+            background-color: var(--discord-hover);
+            transform: scale(1.02);
         }
 
         /* Documentation & Build Section */
@@ -195,7 +223,7 @@
     <!-- Header Navigation -->
     <header>
         <div class="nav-inner">
-            <div class="brand-logo">Leg<span>cord</span> Web</div>
+            <div class="brand-logo">Leg<span>cord Hub</span></div>
             <nav>
                 <ul>
                     <li><a href="#" class="active" id="nav-app">Application Dashboard</a></li>
@@ -209,11 +237,11 @@
     <main class="app-view-container">
         
         <div class="view-toggle-buttons">
-            <button class="toggle-btn active" onclick="switchView('portal')">Run Web Web-Wrapper</button>
-            <button class="toggle-btn" onclick="switchView('desktop')">Desktop Build Pipeline</button>
+            <button id="btn-portal" class="toggle-btn active" onclick="switchView('portal')">Run Web Client</button>
+            <button id="btn-desktop" class="toggle-btn" onclick="switchView('desktop')">Desktop Build Pipeline</button>
         </div>
 
-        <!-- Tab 1: Web Interface Viewport Workaround -->
+        <!-- Tab 1: Fixed Same-Tab Routing Workaround -->
         <div id="view-portal" class="window-frame active">
             <div class="window-header">
                 <div class="window-dots">
@@ -221,23 +249,27 @@
                     <div class="dot dot-yellow"></div>
                     <div class="dot dot-green"></div>
                 </div>
-                <div class="window-title">Secure Discord Proxy Frame</div>
+                <div class="window-title">Legcord Secure Web Portal</div>
                 <div style="width: 52px;"></div>
             </div>
-            <!-- Standard browser sandboxing optimization redirecting safely directly into user web portals -->
-            <iframe class="web-viewport" src="https://discord.com" sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts flex"></iframe>
+            <div class="portal-content">
+                <h2>Access Legcord in this Tab</h2>
+                <p>To safely bypass iframe security rules, click below to immediately load the web client directly inside this window without launching an outside tab!</p>
+                <!-- target="_self" forces the current browser window to load the destination directly -->
+                <a href="https://discord.com" target="_self" class="launch-btn">Launch Web Client Here 🚀</a>
+            </div>
         </div>
 
         <!-- Tab 2: Native Desktop Compilation Setup Guide -->
         <div id="view-desktop" class="window-frame">
             <div class="window-header">
                 <div class="window-dots"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
-                <div class="window-title">Desktop Compilation Terminal</div>
+                <div class="window-title">Legcord Desktop Build Terminal</div>
                 <div style="width: 52px;"></div>
             </div>
             <div class="docs-layout" id="setup">
-                <h2>Compile Native Electron App Locally</h2>
-                <p>Because browser isolation models block deep theme injection and desktop RPC features, running the client engine locally gives you the true Legcord experience. Execute these commands in your machine environment:</p>
+                <h2>Compile Legcord Locally</h2>
+                <p>Running the client engine natively on your desktop bypasses web limitations, allowing deep theme injections and rich game tracking. Run these shell commands on your machine:</p>
                 
                 <div class="code-block">
 # 1. Initialize project architecture<br>
@@ -249,12 +281,11 @@ touch main.js
                 </div>
 
                 <h2>Deploying Directly to GitHub Pages</h2>
-                <p>To deploy this interface live to your own personal GitHub handle instantly, organize your repository tree like this:</p>
+                <p>To keep this project hosted online using your GitHub account, verify your repository tree layout stays organized like this:</p>
                 <div class="code-block">
 📁 your-repository-name/<br>
-├── 📄 index.html      &lt;-- (Paste this entire file here)<br>
-├── 📄 main.js        &lt;-- (Your Electron desktop application file)<br>
-└── 📄 package.json   &lt;-- (Your package dependency profile)
+├── 📄 index.html      &lt;-- (This webpage template file)<br>
+└── 📄 main.js        &lt;-- (Your desktop application core logic)<br>
                 </div>
             </div>
         </div>
@@ -263,19 +294,4 @@ touch main.js
 
     <!-- Structural Layout Footnotes -->
     <footer>
-        <p>&copy; 2026 Legcord Web Frameworks. Source modules shared freely under open-source compliance profiles.</p>
-        <p class="disclaimer-text">Safety Statement: If the embedded browser portal limits functionality or appears blank, your local web browser is enforcing iframe protection rules. Access the chat directly using an isolated client launch or clear local proxy definitions.</p>
-    </footer>
-
-    <!-- Interactive Navigation Control Script -->
-    <script>
-        function switchView(targetView) {
-            // Remove active tags globally
-            document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.window-frame').forEach(frame => frame.classList.remove('active'));
-            
-            // Reassign active tags based on selection targets
-            if(targetView === 'portal') {
-                document.querySelectorAll('.toggle-btn')[0].classList.add('active');
-                document.getElementById('view-portal').classList.add('active');
-            } else {
+        <p>&copy; 2026 Legcord Hub. Source modules shared freely under open-source compliance profiles.</p>
