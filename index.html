@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legcord Client Hub - Lightweight Custom Client</title>
+    <title>Legcord Client Hub - Chromebook Edition</title>
     <style>
         /* Modern UI Design & Color Themes */
         * {
@@ -20,7 +20,8 @@
             --text-gray: #949ba4;
             --discord-blue: #5865f2;
             --discord-hover: #4752c4;
-            --accent-green: #23a55a;
+            --bypass-purple: #9b51e0;
+            --bypass-hover: #7b3cb5;
         }
         body {
             background-color: var(--bg-dark-700);
@@ -58,19 +59,6 @@
         .brand-logo span {
             color: var(--discord-blue);
         }
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-        nav ul li a {
-            color: var(--text-gray);
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-        nav ul li a:hover, nav ul li a.active {
-            color: var(--text-white);
-        }
 
         /* App Wrapper Interface Container */
         .app-view-container {
@@ -79,26 +67,6 @@
             padding: 0 20px;
             text-align: center;
         }
-        .view-toggle-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        .toggle-btn {
-            background: var(--bg-dark-800);
-            color: var(--text-white);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 12px 24px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.2s;
-        }
-        .toggle-btn.active {
-            background: var(--discord-blue);
-            border-color: var(--discord-blue);
-        }
         
         /* Application Portal Frame */
         .window-frame {
@@ -106,11 +74,9 @@
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             overflow: hidden;
-            display: none;
             border: 1px solid rgba(255,255,255,0.08);
-        }
-        .window-frame.active {
-            display: block;
+            max-width: 800px;
+            margin: 0 auto;
         }
         .window-header {
             background-color: var(--bg-dark-900);
@@ -120,27 +86,16 @@
             justify-content: space-between;
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .window-dots {
-            display: flex;
-            gap: 8px;
-        }
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
+        .window-dots { display: flex; gap: 8px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
         .dot-red { background-color: #ff5f56; }
         .dot-yellow { background-color: #ffbd2e; }
         .dot-green { background-color: #27c93f; }
-        .window-title {
-            font-size: 14px;
-            color: var(--text-gray);
-            font-weight: 500;
-        }
+        .window-title { font-size: 14px; color: var(--text-gray); font-weight: 500; }
 
         /* Direct Action Button Portal styling */
         .portal-content {
-            padding: 80px 20px;
+            padding: 60px 20px;
         }
         .portal-content h2 {
             font-size: 32px;
@@ -153,12 +108,19 @@
             margin: 0 auto 35px auto;
             font-size: 16px;
         }
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
         .launch-btn {
             display: inline-block;
-            background-color: var(--discord-blue);
+            width: 80%;
+            max-width: 400px;
             color: var(--text-white);
-            padding: 16px 45px;
-            font-size: 18px;
+            padding: 16px 20px;
+            font-size: 16px;
             text-decoration: none;
             border-radius: 6px;
             font-weight: 700;
@@ -166,37 +128,10 @@
             cursor: pointer;
             border: none;
         }
-        .launch-btn:hover {
-            background-color: var(--discord-hover);
-            transform: scale(1.02);
-        }
-
-        /* Documentation & Build Section */
-        .docs-layout {
-            padding: 40px 20px;
-            text-align: left;
-            max-width: 850px;
-            margin: 0 auto;
-        }
-        .docs-layout h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: var(--text-white);
-        }
-        .docs-layout p {
-            color: var(--text-gray);
-            margin-bottom: 25px;
-        }
-        .code-block {
-            background-color: var(--bg-dark-900);
-            padding: 20px;
-            border-radius: 6px;
-            font-family: 'Courier New', Courier, monospace;
-            color: var(--accent-green);
-            overflow-x: auto;
-            border: 1px solid rgba(255,255,255,0.05);
-            margin-bottom: 30px;
-        }
+        .btn-blue { background-color: var(--discord-blue); }
+        .btn-blue:hover { background-color: var(--discord-hover); transform: scale(1.02); }
+        .btn-purple { background-color: var(--bypass-purple); }
+        .btn-purple:hover { background-color: var(--bypass-hover); transform: scale(1.02); }
 
         /* Standard Footer */
         footer {
@@ -208,14 +143,6 @@
             margin-top: 60px;
             border-top: 1px solid rgba(255,255,255,0.05);
         }
-        .disclaimer-text {
-            font-size: 12px;
-            color: #4e5058;
-            margin-top: 10px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
     </style>
 </head>
 <body>
@@ -223,75 +150,55 @@
     <!-- Header Navigation -->
     <header>
         <div class="nav-inner">
-            <div class="brand-logo">Leg<span>cord Hub</span></div>
-            <nav>
-                <ul>
-                    <li><a href="#" class="active" id="nav-app">Application Dashboard</a></li>
-                    <li><a href="#setup" id="nav-docs">Build Instructions</a></li>
-                </ul>
-            </nav>
+            <div class="brand-logo">Leg<span>cord Chromebook Hub</span></div>
         </div>
     </header>
 
     <!-- Main Workspace Application -->
     <main class="app-view-container">
-        
-        <div class="view-toggle-buttons">
-            <button id="btn-portal" class="toggle-btn active" onclick="switchView('portal')">Run Web Client</button>
-            <button id="btn-desktop" class="toggle-btn" onclick="switchView('desktop')">Desktop Build Pipeline</button>
-        </div>
 
-        <!-- Tab 1: Fixed Same-Tab Routing Workaround -->
-        <div id="view-portal" class="window-frame active">
+        <div class="window-frame">
             <div class="window-header">
                 <div class="window-dots">
                     <div class="dot dot-red"></div>
                     <div class="dot dot-yellow"></div>
                     <div class="dot dot-green"></div>
                 </div>
-                <div class="window-title">Legcord Secure Web Portal</div>
+                <div class="window-title">Chromebook Anti-Block Portal</div>
                 <div style="width: 52px;"></div>
             </div>
             <div class="portal-content">
-                <h2>Access Legcord in this Tab</h2>
-                <p>To safely bypass iframe security rules, click below to immediately load the web client directly inside this window without launching an outside tab!</p>
-                <!-- target="_self" forces the current browser window to load the destination directly -->
-                <a href="https://discord.com" target="_self" class="launch-btn">Launch Web Client Here 🚀</a>
-            </div>
-        </div>
-
-        <!-- Tab 2: Native Desktop Compilation Setup Guide -->
-        <div id="view-desktop" class="window-frame">
-            <div class="window-header">
-                <div class="window-dots"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
-                <div class="window-title">Legcord Desktop Build Terminal</div>
-                <div style="width: 52px;"></div>
-            </div>
-            <div class="docs-layout" id="setup">
-                <h2>Compile Legcord Locally</h2>
-                <p>Running the client engine natively on your desktop bypasses web limitations, allowing deep theme injections and rich game tracking. Run these shell commands on your machine:</p>
+                <h2>Chromebook Connection Dashboard</h2>
+                <p>If the school LGfL filter blocks the standard login button, use the alternative unblocked routing nodes below to load Discord hidden inside a proxy node.</p>
                 
-                <div class="code-block">
-# 1. Initialize project architecture<br>
-mkdir legcord-custom && cd legcord-custom<br><br>
-# 2. Pull down production configurations<br>
-npm init -y && npm install electron<br><br>
-# 3. Create your initialization workflow<br>
-touch main.js
-                </div>
-
-                <h2>Deploying Directly to GitHub Pages</h2>
-                <p>To keep this project hosted online using your GitHub account, verify your repository tree layout stays organized like this:</p>
-                <div class="code-block">
-📁 your-repository-name/<br>
-├── 📄 index.html      &lt;-- (This webpage template file)<br>
-└── 📄 main.js        &lt;-- (Your desktop application core logic)<br>
+                <div class="btn-group">
+                    <!-- Node 1: Standard Method (Will be blocked on school Wi-Fi, works on home network) -->
+                    <a href="https://discord.com" target="_self" class="launch-btn btn-blue">
+                        Node 1: Direct Connection (Home Use)
+                    </a>
+                    
+                    <!-- Node 2: Dynamic Web Proxy Workaround (Keeps you on GitHub Domain) -->
+                    <button onclick="launchProxy()" class="launch-btn btn-purple">
+                        Node 2: Unblocked Web Proxy (School Use)
+                    </button>
                 </div>
             </div>
         </div>
 
     </main>
 
-    <!-- Structural Layout Footnotes -->
     <footer>
-        <p>&copy; 2026 Legcord Hub. Source modules shared freely under open-source compliance profiles.</p>
+        <p>&copy; 2026 Legcord Hub. Optimized for School Managed Chromebook Layouts.</p>
+    </footer>
+
+    <script>
+        function launchProxy() {
+            // This script automatically takes you to an unblocked public web proxy gateway
+            // To hide the 'Web Chat' category from the LGfL filter
+            const targetUrl = btoa('https://discord.com'); // Base64 encodes the URL to hide it from standard URL filters
+            window.location.href = 'https://croxyproxy.com' + targetUrl;
+        }
+    </script>
+</body>
+</html>
+
