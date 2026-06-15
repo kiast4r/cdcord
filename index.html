@@ -4,73 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>✧*̥ Legcord Hub: Tropical Aero Edition *̥✧</title>
-    <!-- Importing cute rounded and handwriting fonts -->
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        /* Y2K Frutiger Aero Reset & Globals */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        :root {
-            /* Tropical Aero Neon Palette */
-            --glass-bg: rgba(255, 255, 255, 0.45);
-            --glass-border: rgba(255, 255, 255, 0.6);
-            --text-dark: #0f4c5c;
-            --text-pink: #ff758f;
-            --aero-blue: #00f2fe;
-            --aero-green: #4facfe;
-            --lime-glow: #70e000;
-        }
-        
         body {
-            /* Tropical South America Frutiger Aero Vista Vibe Gradient */
             background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 50%, #ccff00 100%);
             background-attachment: fixed;
             font-family: 'Fredoka', sans-serif;
-            color: var(--text-dark);
+            color: #0f4c5c;
             overflow-x: hidden;
             position: relative;
-
-            /* Cute Pink Telephone Cursor Hack using SVG data string */
             cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='32' height='32' viewBox='0 0 32 32'><path d='M22,6 H10 C7.8,6 6,7.8 6,10 V22 C6,24.2 7.8,26 10,26 H22 C24.2,26 26,24.2 26,22 V10 C26,7.8 24.2,6 22,6 Z' fill='%23ff9ff3' stroke='%23f368e0' stroke-width='2'/><path d='M10,10 H22 V14 H10 Z' fill='%23ffffff' opacity='0.7'/><circle cx='11' cy='18' r='1.5' fill='%23ffffff'/><circle cx='16' cy='18' r='1.5' fill='%23ffffff'/><circle cx='21' cy='18' r='1.5' fill='%23ffffff'/><circle cx='11' cy='22' r='1.5' fill='%23ffffff'/><circle cx='16' cy='22' r='1.5' fill='%23ffffff'/><circle cx='21' cy='22' r='1.5' fill='%23ffffff'/><path d='M8,4 C12,2 20,2 24,4 L22,7 C19,6 13,6 10,7 Z' fill='%23f368e0'/></svg>") 16 16, auto;
         }
-
-        /* Interactive items get the cursor pointer variant */
         a, button, input {
             cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='32' height='32' viewBox='0 0 32 32'><path d='M22,6 H10 C7.8,6 6,7.8 6,10 V22 C6,24.2 7.8,26 10,26 H22 C24.2,26 26,24.2 26,22 V10 C26,7.8 24.2,6 22,6 Z' fill='%23ff758f' stroke='%23ff4d6d' stroke-width='2'/><path d='M10,10 H22 V14 H10 Z' fill='%23ffffff' opacity='0.7'/><circle cx='11' cy='18' r='1.5' fill='%23ffffff'/><circle cx='16' cy='18' r='1.5' fill='%23ffffff'/><circle cx='21' cy='18' r='1.5' fill='%23ffffff'/><circle cx='11' cy='22' r='1.5' fill='%23ffffff'/><circle cx='16' cy='22' r='1.5' fill='%23ffffff'/><circle cx='21' cy='22' r='1.5' fill='%23ffffff'/><path d='M8,4 C12,2 20,2 24,4 L22,7 C19,6 13,6 10,7 Z' fill='%23ff4d6d'/></svg>") 16 16, pointer;
         }
-
-        /* Ambient floating water bubble reflections */
-        body::before, body::after {
+        body::before {
             content: '';
             position: absolute;
             border-radius: 50%;
             background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(0,242,254,0.1) 100%);
-            box-shadow: inset -5px -5px 15px rgba(0,0,0,0.1), inset 5px 5px 15px rgba(255,255,255,0.8), 0 10px 20px rgba(0,0,0,0.05);
+            box-shadow: inset -5px -5px 15px rgba(0,0,0,0.1), inset 5px 5px 15px rgba(255,255,255,0.8);
             z-index: -1;
-            animation: floatBubble 8s ease-in-out infinite alternate;
+            width: 140px; height: 140px; top: 15%; left: 8%;
         }
-        body::before { width: 140px; height: 140px; top: 15%; left: 8%; }
-        body::after { width: 90px; height: 90px; bottom: 12%; right: 10%; animation-delay: 2s; }
-
-        @keyframes floatBubble {
-            0% { transform: translateY(0) rotate(0deg); }
-            100% { transform: translateY(-20px) rotate(10deg); }
-        }
-
-        /* Top Bar Navigation Hub */
         header {
             background: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             padding: 18px 30px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid var(--glass-border);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.6);
         }
         .nav-inner {
             max-width: 1100px;
@@ -84,117 +51,45 @@
             font-size: 26px;
             font-weight: 700;
             color: #0f4c5c;
-            text-shadow: 1px 1px 0px #fff, 0 0 10px rgba(0,242,254,0.5);
         }
         .brand-logo span {
-            color: var(--text-pink);
+            color: #ff758f;
         }
-
-        /* App Main Workstation */
         .app-view-container {
             max-width: 1200px;
             margin: 60px auto;
             padding: 0 20px;
             text-align: center;
         }
-        
-        /* Glassmorphism Window Container */
         .window-frame {
-            background: var(--glass-bg);
+            background: rgba(255, 255, 255, 0.45);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08), inset 1px 1px 0px rgba(255,255,255,0.6);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
             overflow: hidden;
-            border: 2px solid var(--glass-border);
+            border: 2px solid rgba(255, 255, 255, 0.6);
             max-width: 750px;
             margin: 0 auto;
         }
-        
-        /* Aqua Title Bar */
         .window-header {
             background: linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.1) 100%);
             padding: 16px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid var(--glass-border);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.6);
         }
         .window-dots { display: flex; gap: 10px; }
-        
-        /* Liquid Bubble Style Control Nodes */
-        .dot { 
-            width: 15px; 
-            height: 15px; 
-            border-radius: 50%; 
-            position: relative;
-            box-shadow: inset -2px -2px 4px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .dot::after {
-            content: '';
-            position: absolute;
-            top: 2px; left: 3px; width: 4px; height: 4px;
-            background: #fff; border-radius: 50%;
-        }
+        .dot { width: 15px; height: 15px; border-radius: 50%; }
         .dot-red { background-color: #ff5252; }
         .dot-yellow { background-color: #ffb142; }
         .dot-green { background-color: #2ed573; }
-        
-        .window-title { 
-            font-size: 15px; 
-            color: var(--text-dark); 
-            font-weight: 700;
-            font-family: 'Comfortaa', cursive;
-        }
-
-        /* Girly Y2K Content Elements */
-        .portal-content {
-            padding: 50px 30px;
-        }
-        .portal-content h2 {
-            font-size: 34px;
-            color: #0f4c5c;
-            margin-bottom: 15px;
-            font-family: 'Comfortaa', cursive;
-            text-shadow: 2px 2px 0px rgba(255,255,255,0.8);
-        }
-        .portal-content p {
-            color: #2b6777;
-            max-width: 520px;
-            margin: 0 auto 40px auto;
-            font-size: 16px;
-            font-weight: 500;
-        }
-        
-        /* Sparkle Element accents */
-        .sparkle-text {
-            display: inline-block;
-            position: relative;
-        }
-        .sparkle-text::before {
-            content: '✧';
-            position: absolute;
-            top: -15px; left: -25px;
-            color: var(--text-pink);
-            font-size: 20px;
-        }
-        .sparkle-text::after {
-            content: '✦';
-            position: absolute;
-            bottom: -10px; right: -25px;
-            color: #00f2fe;
-            font-size: 18px;
-        }
-
-        /* Aqua-Button Clusters */
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: center;
-        }
-        
-        /* 3D Glossy Aqua Button Style */
+        .window-title { font-size: 15px; color: #0f4c5c; font-weight: 700; font-family: 'Comfortaa', cursive; }
+        .portal-content { padding: 50px 30px; }
+        .portal-content h2 { font-size: 34px; color: #0f4c5c; margin-bottom: 15px; font-family: 'Comfortaa', cursive; }
+        .portal-content p { color: #2b6777; max-width: 520px; margin: 0 auto 40px auto; font-size: 16px; font-weight: 500; }
+        .btn-group { display: flex; flex-direction: column; gap: 20px; align-items: center; }
         .launch-btn {
             display: inline-block;
             width: 85%;
@@ -205,46 +100,107 @@
             text-decoration: none;
             border-radius: 50px; 
             font-weight: 700;
-            cursor: pointer;
             border: 2px solid rgba(255,255,255,0.4);
             font-family: 'Fredoka', sans-serif;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1), inset 0 4px 4px rgba(255,255,255,0.4);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
-
-        /* Top gloss overlay highlight across buttons */
-        .launch-btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; height: 50%;
-            background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
-            border-radius: 50px 50px 0 0;
-        }
-
-        .btn-blue { 
-            background: linear-gradient(180deg, #70a1ff 0%, #1e90ff 100%); 
-        }
-        .btn-blue:hover { 
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 12px 24px rgba(30,144,255,0.3), inset 0 4px 4px rgba(255,255,255,0.4);
-        }
-        
-        .btn-pink { 
-            background: linear-gradient(180deg, #ff9ff3 0%, #f368e0 100%); 
-        }
-        .btn-pink:hover { 
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 12px 24px rgba(243,104,224,0.3), inset 0 4px 4px rgba(255,255,255,0.4);
-        }
-
-        /* Search Input Box Styling */
+        .btn-blue { background: linear-gradient(180deg, #70a1ff 0%, #1e90ff 100%); }
+        .btn-blue:hover { transform: translateY(-4px); }
+        .btn-pink { background: linear-gradient(180deg, #ff9ff3 0%, #f368e0 100%); }
+        .btn-pink:hover { transform: translateY(-4px); }
         .custom-search-container {
             margin-bottom: 25px; 
             background: rgba(255,255,255,0.3); 
             padding: 12px; 
             border-radius: 30px; 
-            border: 1px solid var(--glass-border);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .custom-search-container input {
+            padding: 10px 15px; 
+            border-radius: 20px; 
+            border: none; 
+            width: 70%; 
+            font-family: 'Fredoka', sans-serif; 
+            outline: none; 
+            font-size: 13px;
+            color: #0f4c5c;
+            background: rgba(255,255,255,0.6);
+        }
+        footer {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 25px 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #0f4c5c;
+            margin-top: 80px;
+            border-top: 2px solid rgba(255, 255, 255, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-inner">
+            <div class="brand-logo">✿ Leg<span>cord</span> Hub ✿</div>
+        </div>
+    </header>
+
+    <main class="app-view-container">
+        <div class="window-frame">
+            <div class="window-header">
+                <div class="window-dots">
+                    <div class="dot dot-red"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class="dot dot-green"></div>
+                </div>
+                <div class="window-title">✧ bubble app setup ✧</div>
+                <div style="width: 52px;"></div>
+            </div>
+            <div class="portal-content">
+                <h2>Chromebook Hub</h2>
+                <p>If Node 2 is blocked by LGfL, find an unknown proxy link online, paste it into the tester capsule below, and hit Test! 🚀</p>
+                
+                <div class="custom-search-container">
+                    <input type="text" id="custom-node-url" placeholder="Paste unknown proxy link here... ✧">
+                    <button onclick="launchCustomNode()" class="launch-btn btn-pink" style="width: auto; padding: 10px 20px; font-size: 13px; box-shadow: none; margin: 0;">Test! </button>
+                </div>
+
+                <div class="btn-group">
+                    <a href="https://discord.com" target="_self" class="launch-btn btn-blue">
+                        Node 1: Direct Link (Home Use) 🏝️
+                    </a>
+                    <button onclick="launchProxy()" class="launch-btn btn-pink">
+                        Node 2: Default Proxy Node ✨
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>˚❀ 2026 Legcord Hub | Designed with love for school Chromebook pipelines ❀˚</p>
+    </footer>
+
+    <script>
+        function launchProxy() {
+            window.location.href = 'https://workers.dev' + btoa('https://discord.com');
+        }
+
+        function launchCustomNode() {
+            var chosenProxy = document.getElementById('custom-node-url').value;
+            if (!chosenProxy) {
+                alert('Please type a mirror node address first! ✿');
+                return;
+            }
+            window.location.href = chosenProxy + (chosenProxy.includes('?') ? '' : '?url=') + encodeURIComponent('https://discord.com');
+        }
+    </script>
+</body>
+</html>
