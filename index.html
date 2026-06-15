@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>✧*̥ cdcord // aesthetic gateway *̥✧</title>
-    <!-- Fonts Link -->
-    <link href="https://googleapis.com" rel="stylesheet">
     <style>
+        /* Using safe, built-in Chromebook fonts so the page never freezes */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
         }
         body {
             height: 100vh;
             display: flex;
             flex-direction: column;
-            font-family: 'Plus Jakarta Sans', sans-serif;
             color: #032b30;
             overflow: hidden;
             background: linear-gradient(135deg, #00f2fe 0%, #4facfe 35%, #ff758f 75%, #ffbc00 100%);
@@ -27,9 +26,9 @@
         .auth-wrapper {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
+            background: rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             z-index: 9999;
             display: flex;
             align-items: center;
@@ -45,21 +44,21 @@
             box-shadow: 0 20px 50px rgba(0,0,0,0.15);
             text-align: center;
         }
-        .auth-box h2 { font-family: 'Syne', sans-serif; font-size: 28px; margin-bottom: 8px; color: #032b30; }
+        .auth-box h2 { font-size: 28px; margin-bottom: 8px; color: #032b30; font-weight: 800; }
         .auth-box p { font-size: 14px; color: #1b5a63; margin-bottom: 24px; font-weight: 500; }
         .input-group { text-align: left; margin-bottom: 16px; width: 100%; }
         .input-group label { display: block; font-size: 11px; text-transform: uppercase; font-weight: 800; color: #032b30; margin-bottom: 6px; letter-spacing: 0.5px; }
-        .input-group input { width: 100%; padding: 12px 16px; border-radius: 30px; border: 2px solid rgba(255,255,255,0.8); background: rgba(255,255,255,0.6); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; outline: none; color: #032b30; }
+        .input-group input { width: 100%; padding: 12px 16px; border-radius: 30px; border: 2px solid rgba(255,255,255,0.8); background: rgba(255,255,255,0.6); font-size: 14px; outline: none; color: #032b30; }
         .auth-btn { width: 100%; padding: 14px; border: none; border-radius: 30px; background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); color: white; font-weight: 700; font-size: 15px; box-shadow: 0 4px 15px rgba(243,104,224,0.3); margin-top: 10px; margin-bottom: 15px; cursor: pointer; }
         .auth-switch { font-size: 13px; color: #032b30; font-weight: 500; }
         .auth-switch span { color: #ff3366; font-weight: 700; text-decoration: underline; cursor: pointer; }
 
-        /* ---------------- CORE DASHBOARD STYLING ---------------- */
+        /* ---------------- APP CORE STYLING ---------------- */
         header { background: rgba(255, 255, 255, 0.25); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 10px 25px; border-bottom: 2px solid rgba(255, 255, 255, 0.4); display: flex; justify-content: space-between; align-items: center; height: 60px; }
-        .brand-logo { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 800; color: #032b30; letter-spacing: -1px; text-transform: lowercase; }
-        .brand-logo span { color: #ff3366; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 800; vertical-align: super; }
+        .brand-logo { font-size: 26px; font-weight: 800; color: #032b30; letter-spacing: -1px; }
+        .brand-logo span { color: #ff3366; font-size: 14px; font-weight: 800; vertical-align: super; }
         .tab-btn-group { display: flex; gap: 8px; }
-        .tab-btn { background: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.5); padding: 8px 18px; border-radius: 30px; font-weight: 700; font-size: 13px; color: #032b30; font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.2s ease; }
+        .tab-btn { background: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.5); padding: 8px 18px; border-radius: 30px; font-weight: 700; font-size: 13px; color: #032b30; transition: all 0.2s ease; }
         .tab-btn.active { background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); color: white; border-color: rgba(255,255,255,0.2); box-shadow: 0 4px 12px rgba(243,104,224,0.3); }
         
         .main-container { display: flex; flex: 1; overflow: hidden; padding: 15px; gap: 12px; }
@@ -68,7 +67,7 @@
         .server-icon { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(180deg, #ff9ff3 0%, #f368e0 100%); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 18px; border: 2px solid white; }
         .server-icon.active { border-radius: 16px; background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); color: #032b30; }
         .channel-sidebar { width: 240px; background: rgba(255, 255, 255, 0.35); backdrop-filter: blur(20px); border-radius: 24px; border: 2px solid rgba(255, 255, 255, 0.4); display: flex; flex-direction: column; overflow: hidden; }
-        .server-title-bar { padding: 18px; font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 800; border-bottom: 1px solid rgba(255,255,255,0.3); text-align: left; }
+        .server-title-bar { padding: 18px; font-size: 16px; font-weight: 800; border-bottom: 1px solid rgba(255,255,255,0.3); text-align: left; }
         .channel-list { padding: 15px 10px; display: flex; flex-direction: column; gap: 4px; flex: 1; overflow-y: auto; }
         .category-title { font-size: 11px; text-transform: uppercase; font-weight: 800; color: #1b5a63; margin-top: 12px; padding-left: 8px; text-align: left; }
         .channel-item { padding: 9px 14px; border-radius: 30px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: #032b30; }
@@ -120,15 +119,29 @@
         
         .chat-input-bar { padding: 20px; }
         .input-box-wrapper { background: rgba(255, 255, 255, 0.6); border: 2px solid rgba(255, 255, 255, 0.7); border-radius: 30px; padding: 12px 20px; display: flex; align-items: center; }
-        .input-box-wrapper input { flex: 1; background: transparent; border: none; outline: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 500; color: #032b30; }
+        .input-box-wrapper input { flex: 1; background: transparent; border: none; outline: none; font-size: 14px; font-weight: 500; color: #032b30; }
         .send-btn { background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); border: none; color: white; padding: 7px 18px; border-radius: 20px; font-weight: 700; margin-left: 10px; font-size: 12px; }
         
         #tiktok-view { display: none; width: 100%; height: 100%; justify-content: center; align-items: center; }
-        .fyp-container { width: 380px; height: 100%; background: #000; border-radius: 32px; border: 4px solid rgba(255,255,255,0.6); position: relative; overflow: hidden; }
-        .fyp-video { width: 100%; height: 100%; object-fit: cover; }
-        .fyp-overlay-right { position: absolute; right: 15px; bottom: 120px; display: flex; flex-direction: column; gap: 22px; color: white; z-index: 10; }
-        .action-icon-wrapper { text-align: center; font-size: 24px; text-shadow: 0 2px 5px rgba(0,0,0,0.9); }
-        .action-icon-wrapper span { display: block; font-size: 11px; font-weight: 800; }
-        .fyp-overlay-bottom { position: absolute; left: 20px; bottom: 25px; color: white; text-align: left; z-index: 10; max-width: 80%; text-shadow: 0 2px 5px rgba(0,0,0,0.9); }
-        .fyp-author { font-weight: 800; font-size: 15px; }
-        .fyp-caption { font-size: 13px; line-height: 1.4; }
+        .fyp-container { width: 380px; height: 100%; background: linear-gradient(135deg, #111, #222); border-radius: 32px; border: 4px solid rgba(255,255,255,0.6); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;}
+        .fyp-placeholder-box { color: white; padding: 30px; text-align: center; }
+        .fyp-placeholder-box h3 { font-size: 22px; margin-bottom: 10px; color: #ff9ff3; }
+        .fyp-placeholder-box p { font-size: 14px; color: #aaa; line-height: 1.4; }
+    </style>
+</head>
+<body>
+
+    <!-- 🚪 AUTH GATES -->
+    <div class="auth-wrapper" id="authScreen">
+        <div class="auth-box" id="loginBox">
+            <h2>Welcome back!</h2>
+            <p>We're so excited to see you again! 🏝️</p>
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="loginUser" placeholder="Enter your username">
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="loginPass" placeholder="Enter your password">
+            </div>
+            <button class="auth-btn" onclick="handleLogin()">Log In</button>
