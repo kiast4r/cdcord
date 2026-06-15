@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✧*̥ cdcord // tropical brainrot client *̥✧</title>
-    <!-- Importing Cool, Classy, High-Aesthetic Modern Typography -->
+    <title>✧*̥ cdcord // aesthetic gateway *̥✧</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
         * {
@@ -12,7 +11,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
         body {
             height: 100vh;
             display: flex;
@@ -22,17 +20,41 @@
             overflow: hidden;
             background: linear-gradient(135deg, #00f2fe 0%, #4facfe 35%, #ff758f 75%, #ffbc00 100%);
             background-attachment: fixed;
-            letter-spacing: -0.2px;
-            
-            /* Cute Pink Hibiscus Flower Cursor */
-            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='32' height='32' viewBox='0 0 32 32'><path d='M16,2 C17.5,6 19,8 23,7 C21,11 22,13.5 26,14 C22,15 21,18 22,22 C18,20 16.5,21 16,25 C15.5,21 14,20 10,22 C11,18 10,15 6,14 C10,13.5 11,11 9,7 C13,8 14.5,6 16,2 Z' fill='%23ff4d6d' stroke='%23ffb142' stroke-width='2'/><circle cx='16' cy='14' r='2' fill='%23ffb142'/></svg>") 16 14, auto;
         }
 
-        /* Hover Star Sparkle Cursor */
-        a, button, input, .server-icon, .channel-item, .tab-btn {
-            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='32' height='32' viewBox='0 0 32 32'><path d='M16,4 L19,11 L26,12 L21,17 L23,24 L16,20 L9,24 L11,17 L6,12 L13,11 Z' fill='%2300f2fe' stroke='%23ffffff' stroke-width='2'/></svg>") 16 16, pointer;
+        /* ---------------- AUTH SCREENS ---------------- */
+        .auth-wrapper {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.4), rgba(255, 117, 143, 0.4));
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+        .auth-box {
+            background: rgba(255, 255, 255, 0.7);
+            border: 2px solid rgba(255,255,255,0.6);
+            backdrop-filter: blur(15px);
+            border-radius: 24px;
+            padding: 40px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .auth-box h2 { font-family: 'Syne', sans-serif; font-size: 28px; margin-bottom: 8px; color: #032b30; }
+        .auth-box p { font-size: 14px; color: #1b5a63; margin-bottom: 24px; font-weight: 500; }
+        .input-group { text-align: left; margin-bottom: 16px; }
+        .input-group label { display: block; font-size: 11px; text-transform: uppercase; font-weight: 800; color: #032b30; margin-bottom: 6px; letter-spacing: 0.5px; }
+        .input-group input { width: 100%; padding: 12px 16px; border-radius: 30px; border: 2px solid rgba(255,255,255,0.8); background: rgba(255,255,255,0.4); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; outline: none; font-weight: 500; color: #032b30; }
+        .auth-btn { width: 100%; padding: 14px; border: none; border-radius: 30px; background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); color: white; font-weight: 700; font-size: 15px; box-shadow: 0 4px 15px rgba(243,104,224,0.3); margin-top: 10px; margin-bottom: 15px; }
+        .auth-switch { font-size: 13px; color: #032b30; font-weight: 500; }
+        .auth-switch span { color: #ff3366; font-weight: 700; text-decoration: underline; }
 
+        /* ---------------- APP INNER DASHBOARD LAYOUT ---------------- */
         header {
             background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(20px);
@@ -44,190 +66,67 @@
             align-items: center;
             height: 60px;
         }
-        .brand-logo {
-            font-family: 'Syne', sans-serif;
-            font-size: 26px;
-            font-weight: 800;
-            color: #032b30;
-            letter-spacing: -1px;
-            text-transform: lowercase;
-        }
-        .brand-logo span { 
-            color: #ff3366; 
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 14px;
-            font-weight: 800;
-            letter-spacing: 0px;
-            vertical-align: super;
-            margin-left: 2px;
-        }
+        .brand-logo { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 800; color: #032b30; letter-spacing: -1px; text-transform: lowercase; }
+        .brand-logo span { color: #ff3366; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 800; vertical-align: super; }
+        .tab-btn-group { display: flex; gap: 8px; }
+        .tab-btn { background: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.5); padding: 8px 18px; border-radius: 30px; font-weight: 700; font-size: 13px; color: #032b30; font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.2s ease; }
+        .tab-btn.active { background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); color: white; border-color: rgba(255,255,255,0.2); box-shadow: 0 4px 12px rgba(243,104,224,0.3); }
+
+        .main-container { display: flex; flex: 1; overflow: hidden; padding: 15px; gap: 12px; }
+        #discord-view { display: flex; width: 100%; height: 100%; gap: 12px; }
         
-        .tab-btn-group {
-            display: flex;
-            gap: 8px;
-        }
-        .tab-btn {
-            background: rgba(255,255,255,0.4);
-            border: 1px solid rgba(255,255,255,0.5);
-            padding: 8px 18px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 13px;
-            color: #032b30;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            transition: all 0.2s ease;
-        }
-        .tab-btn.active {
-            background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
-            color: white;
-            border-color: rgba(255,255,255,0.2);
-            box-shadow: 0 4px 12px rgba(243,104,224,0.3);
-        }
+        .server-sidebar { width: 72px; background: rgba(255, 255, 255, 0.25); backdrop-filter: blur(20px); border-radius: 24px; border: 2px solid rgba(255, 255, 255, 0.4); display: flex; flex-direction: column; align-items: center; padding-top: 15px; gap: 12px; }
+        .server-icon { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(180deg, #ff9ff3 0%, #f368e0 100%); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 18px; border: 2px solid white; }
+        .server-icon.active { border-radius: 16px; background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); color: #032b30; }
 
-        .main-container {
-            display: flex;
-            flex: 1;
-            overflow: hidden;
-            padding: 15px;
-            gap: 12px;
-        }
-
-        /* ---------------- DISCORD PANEL STRUCTURE ---------------- */
-        #discord-view {
-            display: flex;
-            width: 100%;
-            height: 100%;
-            gap: 12px;
-        }
-        .server-sidebar {
-            width: 72px;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 15px;
-            gap: 12px;
-        }
-        .server-icon {
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            background: linear-gradient(180deg, #ff9ff3 0%, #f368e0 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: white;
-            font-size: 18px;
-            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 2px solid white;
-        }
-        .server-icon.active {
-            border-radius: 16px;
-            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-            color: #032b30;
-        }
-
-        .channel-sidebar {
-            width: 240px;
-            background: rgba(255, 255, 255, 0.35);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        .server-title-bar { 
-            padding: 18px; 
-            font-family: 'Syne', sans-serif; 
-            font-size: 16px; 
-            font-weight: 800; 
-            border-bottom: 1px solid rgba(255,255,255,0.3); 
-            text-align: left;
-            letter-spacing: -0.5px;
-        }
+        .channel-sidebar { width: 240px; background: rgba(255, 255, 255, 0.35); backdrop-filter: blur(20px); border-radius: 24px; border: 2px solid rgba(255, 255, 255, 0.4); display: flex; flex-direction: column; overflow: hidden; }
+        .server-title-bar { padding: 18px; font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 800; border-bottom: 1px solid rgba(255,255,255,0.3); text-align: left; }
         .channel-list { padding: 15px 10px; display: flex; flex-direction: column; gap: 4px; flex: 1; overflow-y: auto; }
-        .category-title { font-size: 11px; text-transform: uppercase; font-weight: 800; color: #1b5a63; margin-top: 12px; margin-bottom: 4px; padding-left: 8px; letter-spacing: 0.5px; text-align: left; }
-        .channel-item { padding: 9px 14px; border-radius: 30px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: #032b30; transition: all 0.2s; }
+        .category-title { font-size: 11px; text-transform: uppercase; font-weight: 800; color: #1b5a63; margin-top: 12px; padding-left: 8px; text-align: left; }
+        .channel-item { padding: 9px 14px; border-radius: 30px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: #032b30; }
         .channel-item::before { content: '#'; font-weight: 800; color: #ff758f; }
         .channel-item.active { background: rgba(255, 255, 255, 0.6); color: #000; }
+        
+        .user-footer { padding: 12px; background: rgba(255,255,255,0.2); border-top: 1px solid rgba(255,255,255,0.3); display: flex; align-items: center; gap: 10px; }
+        .user-avatar { width: 32px; height: 32px; border-radius: 50%; background: #ff758f; border: 2px solid white; }
+        .user-info { text-align: left; }
+        .user-name { font-size: 13px; font-weight: 700; color: #000; }
+        .user-tag { font-size: 11px; color: #1b5a63; }
 
-        .chat-area {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        .chat-header { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.3); font-size: 15px; font-weight: 800; text-align: left; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .chat-area { flex: 1; background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(20px); border-radius: 24px; border: 2px solid rgba(255, 255, 255, 0.4); display: flex; flex-direction: column; overflow: hidden; }
+        .chat-header { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.3); font-size: 15px; font-weight: 800; text-align: left; }
         .chat-header::before { content: '#'; color: #ff758f; margin-right: 4px; }
         .message-stream { flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 16px; overflow-y: auto; }
         .msg-card { display: flex; gap: 14px; text-align: left; }
-        .msg-avatar { width: 38px; height: 38px; border-radius: 50%; background: #4facfe; border: 2px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+        .msg-avatar { width: 38px; height: 38px; border-radius: 50%; background: #4facfe; border: 2px solid white; flex-shrink: 0; }
         .msg-avatar.pink { background: #ff9ff3; }
         .msg-avatar.green { background: #70e000; }
         .msg-details { display: flex; flex-direction: column; }
         .msg-author { font-size: 14px; font-weight: 700; color: #000; }
         .msg-time { font-size: 11px; color: #1b5a63; font-weight: 500; margin-left: 6px; }
-        .msg-body { font-size: 14px; color: #032b30; margin-top: 3px; font-weight: 500; line-height: 1.4; }
+        .msg-body { font-size: 14px; color: #032b30; margin-top: 3px; font-weight: 500; }
 
         .chat-input-bar { padding: 20px; }
-        .input-box-wrapper { background: rgba(255, 255, 255, 0.6); border: 2px solid rgba(255, 255, 255, 0.7); border-radius: 30px; padding: 12px 20px; display: flex; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .input-box-wrapper { background: rgba(255, 255, 255, 0.6); border: 2px solid rgba(255, 255, 255, 0.7); border-radius: 30px; padding: 12px 20px; display: flex; align-items: center; }
         .input-box-wrapper input { flex: 1; background: transparent; border: none; outline: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 500; color: #032b30; }
-        .send-btn { background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); border: none; color: white; padding: 7px 18px; border-radius: 20px; font-weight: 700; margin-left: 10px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; }
+        .send-btn { background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); border: none; color: white; padding: 7px 18px; border-radius: 20px; font-weight: 700; margin-left: 10px; font-size: 12px; }
 
-        /* ---------------- TIKTOK PORTAL STRUCTURE ---------------- */
-        #tiktok-view {
-            display: none;
-            width: 100%;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-        }
-        .fyp-container {
-            width: 380px;
-            height: 100%;
-            background: #000;
-            border-radius: 32px;
-            border: 4px solid rgba(255,255,255,0.6);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.25);
-            position: relative;
-            overflow: hidden;
-        }
-        .fyp-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .fyp-overlay-right {
-            position: absolute;
-            right: 15px;
-            bottom: 120px;
-            display: flex;
-            flex-direction: column;
-            gap: 22px;
-            color: white;
-            z-index: 10;
-        }
-        .action-icon-wrapper { text-align: center; font-size: 24px; text-shadow: 0 2px 5px rgba(0,0,0,0.9); font-weight: 700; }
-        .action-icon-wrapper span { display: block; font-size: 11px; font-weight: 800; margin-top: 3px; font-family: 'Plus Jakarta Sans', sans-serif; }
-        
-        .fyp-overlay-bottom {
-            position: absolute;
-            left: 20px;
-            bottom: 25px;
-            color: white;
-            text-align: left;
-            z-index: 10;
-            max-width: 80%;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.9);
-        }
-        .fyp-author { font-weight: 800; font-size: 15px; margin-bottom: 4px; font-family: 'Plus Jakarta Sans', sans-serif; }
+        #tiktok-view { display: none; width: 100%; height: 100%; justify-content: center; align-items: center; }
+        .fyp-container { width: 380px; height: 100%; background: #000; border-radius: 32px; border: 4px solid rgba(255,255,255,0.6); position: relative; overflow: hidden; }
+        .fyp-video { width: 100%; height: 100%; object-fit: cover; }
+        .fyp-overlay-right { position: absolute; right: 15px; bottom: 120px; display: flex; flex-direction: column; gap: 22px; color: white; z-index: 10; }
+        .action-icon-wrapper { text-align: center; font-size: 24px; text-shadow: 0 2px 5px rgba(0,0,0,0.9); }
+        .action-icon-wrapper span { display: block; font-size: 11px; font-weight: 800; }
+        .fyp-overlay-bottom { position: absolute; left: 20px; bottom: 25px; color: white; text-align: left; z-index: 10; max-width: 80%; text-shadow: 0 2px 5px rgba(0,0,0,0.9); }
+        .fyp-author { font-weight: 800; font-size: 15px; }
+        .fyp-caption { font-size: 13px; line-height: 1.4; }
+        .fyp-nav-buttons { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; padding: 0 12px; transform: translateY(-50%); z-index: 20; pointer-events: none; }
+        .fyp-arrow { background: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.4); color: white; width: 38px; height: 38px; border-radius: 50%; pointer-events: auto; backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; }
+    </style>
+</head>
+<body>
+
+    <!-- 🚪 AUTH GATES (LOG IN / SIGN UP POPUP) -->
+    <div class="auth-wrapper" id="authScreen">
+        <!-- Log In Window -->
+        <div class="auth-box" id="loginBox">
