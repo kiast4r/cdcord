@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>✧*̥ cdcord // aesthetic gateway *̥✧</title>
-    
-    <!-- 🌺 MULTI-PLATFORM HIBISCUS FAVICON CODE (TAB LOGO HACK) -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 32 32'><path d='M16,2 C17.5,6 19,8 23,7 C21,11 22,13.5 26,14 C22,15 21,18 22,22 C18,20 16.5,21 16,25 C15.5,21 14,20 10,22 C11,18 10,15 6,14 C10,13.5 11,11 9,7 C13,8 14.5,6 16,2 Z' fill='%23ff4d6d' stroke='%23ffb142' stroke-width='2'/><circle cx='16' cy='14' r='2' fill='%23ffb142'/><line x1='16' y1='14' x2='20' y2='9' stroke='%23ffb142' stroke-width='1.5'/><circle cx='20' cy='9' r='1' fill='%23ffffff'/></svg>">
-    
     <!-- Fonts Link -->
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
@@ -23,53 +19,49 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             color: #032b30;
             overflow: hidden;
-            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 35%, #ff758f 75%, #ffbc00 100%) !important;
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 35%, #ff758f 75%, #ffbc00 100%);
             background-attachment: fixed;
         }
 
-        /* --- AUTH ENTRY GATE --- */
+        /* --- STABLE AUTH OVERLAY --- */
         .auth-wrapper {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
-            background: linear-gradient(135deg, rgba(0, 242, 254, 0.2), rgba(255, 117, 143, 0.2));
-            backdrop-filter: blur(25px) !important;
-            -webkit-backdrop-filter: blur(25px) !important;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
             z-index: 9999;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .auth-box {
-            background: rgba(255, 255, 255, 0.75) !important;
-            border: 2px solid rgba(255,255,255,0.7) !important;
-            backdrop-filter: blur(15px) !important;
-            border-radius: 24px !important;
-            padding: 40px !important;
-            width: 90% !important;
-            max-width: 420px !important;
-            min-height: 440px !important;
+            background: rgba(255, 255, 255, 0.85);
+            border: 2px solid rgba(255,255,255,0.7);
+            border-radius: 24px;
+            padding: 40px;
+            width: 90%;
+            max-width: 420px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: center !important;
-            text-align: center !important;
+            text-align: center;
         }
-        .auth-box h2 { font-family: 'Syne', sans-serif !important; font-size: 28px !important; margin-bottom: 8px !important; color: #032b30 !important; display: block !important; }
-        .auth-box p { font-size: 14px !important; color: #1b5a63 !important; margin-bottom: 24px !important; font-weight: 500 !important; display: block !important; }
-        .input-group { text-align: left !important; margin-bottom: 16px !important; width: 100% !important; display: block !important; }
-        .input-group label { display: block !important; font-size: 11px !important; text-transform: uppercase !important; font-weight: 800 !important; color: #032b30 !important; margin-bottom: 6px !important; letter-spacing: 0.5px !important; }
-        .input-group input { width: 100% !important; padding: 12px 16px !important; border-radius: 30px !important; border: 2px solid rgba(255,255,255,0.8) !important; background: rgba(255,255,255,0.5) !important; font-family: 'Plus Jakarta Sans', sans-serif !important; font-size: 14px !important; outline: none !important; color: #032b30 !important; display: block !important; }
-        .auth-btn { width: 100% !important; padding: 14px !important; border: none !important; border-radius: 30px !important; background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%) !important; color: white !important; font-weight: 700 !important; font-size: 15px !important; box-shadow: 0 4px 15px rgba(243,104,224,0.3) !important; margin-top: 10px !important; margin-bottom: 15px !important; cursor: pointer !important; display: block !important; }
-        .auth-switch { font-size: 13px !important; color: #032b30 !important; font-weight: 500 !important; display: block !important; }
-        .auth-switch span { color: #ff3366 !important; font-weight: 700 !important; text-decoration: underline !important; cursor: pointer !important; }
+        .auth-box h2 { font-family: 'Syne', sans-serif; font-size: 28px; margin-bottom: 8px; color: #032b30; }
+        .auth-box p { font-size: 14px; color: #1b5a63; margin-bottom: 24px; font-weight: 500; }
+        .input-group { text-align: left; margin-bottom: 16px; width: 100%; }
+        .input-group label { display: block; font-size: 11px; text-transform: uppercase; font-weight: 800; color: #032b30; margin-bottom: 6px; letter-spacing: 0.5px; }
+        .input-group input { width: 100%; padding: 12px 16px; border-radius: 30px; border: 2px solid rgba(255,255,255,0.8); background: rgba(255,255,255,0.6); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; outline: none; color: #032b30; }
+        .auth-btn { width: 100%; padding: 14px; border: none; border-radius: 30px; background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); color: white; font-weight: 700; font-size: 15px; box-shadow: 0 4px 15px rgba(243,104,224,0.3); margin-top: 10px; margin-bottom: 15px; cursor: pointer; }
+        .auth-switch { font-size: 13px; color: #032b30; font-weight: 500; }
+        .auth-switch span { color: #ff3366; font-weight: 700; text-decoration: underline; cursor: pointer; }
 
-        /* ---------------- APP CORE STYLING ---------------- */
+        /* ---------------- CORE DASHBOARD STYLING ---------------- */
         header { background: rgba(255, 255, 255, 0.25); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 10px 25px; border-bottom: 2px solid rgba(255, 255, 255, 0.4); display: flex; justify-content: space-between; align-items: center; height: 60px; }
         .brand-logo { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 800; color: #032b30; letter-spacing: -1px; text-transform: lowercase; }
         .brand-logo span { color: #ff3366; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 800; vertical-align: super; }
         .tab-btn-group { display: flex; gap: 8px; }
         .tab-btn { background: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.5); padding: 8px 18px; border-radius: 30px; font-weight: 700; font-size: 13px; color: #032b30; font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.2s ease; }
         .tab-btn.active { background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); color: white; border-color: rgba(255,255,255,0.2); box-shadow: 0 4px 12px rgba(243,104,224,0.3); }
+        
         .main-container { display: flex; flex: 1; overflow: hidden; padding: 15px; gap: 12px; }
         #discord-view { display: flex; width: 100%; height: 100%; gap: 12px; }
         .server-sidebar { width: 72px; background: rgba(255, 255, 255, 0.25); backdrop-filter: blur(20px); border-radius: 24px; border: 2px solid rgba(255, 255, 255, 0.4); display: flex; flex-direction: column; align-items: center; padding-top: 15px; gap: 12px; }
@@ -82,14 +74,40 @@
         .channel-item { padding: 9px 14px; border-radius: 30px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: #032b30; }
         .channel-item::before { content: '#'; font-weight: 800; color: #ff758f; }
         .channel-item.active { background: rgba(255, 255, 255, 0.6); color: #000; }
+        
         .user-footer { padding: 12px; background: rgba(255,255,255,0.2); border-top: 1px solid rgba(255,255,255,0.3); display: flex; align-items: center; gap: 10px; }
         .user-avatar { width: 32px; height: 32px; border-radius: 50%; background: #ff758f; border: 2px solid white; }
         .user-info { text-align: left; }
         .user-name { font-size: 13px; font-weight: 700; color: #000; }
         .user-tag { font-size: 11px; color: #1b5a63; }
+        
         .chat-area { flex: 1; background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(20px); border-radius: 24px; border: 2px solid rgba(255, 255, 255, 0.4); display: flex; flex-direction: column; overflow: hidden; }
         .chat-header { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.3); font-size: 15px; font-weight: 800; text-align: left; }
         .chat-header::before { content: '#'; color: #ff758f; margin-right: 4px; }
+        
+        /* --- Y2K RETRO SCROLLING MARQUEE BANNER --- */
+        .marquee-banner {
+            background: linear-gradient(90deg, #ff9ff3, #f368e0);
+            color: white;
+            padding: 6px 0;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            overflow: hidden;
+            white-space: nowrap;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+        .marquee-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 15s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
         .message-stream { flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 16px; overflow-y: auto; }
         .msg-card { display: flex; gap: 14px; text-align: left; }
         .msg-avatar { width: 38px; height: 38px; border-radius: 50%; background: #4facfe; border: 2px solid white; flex-shrink: 0; }
@@ -99,8 +117,18 @@
         .msg-author { font-size: 14px; font-weight: 700; color: #000; }
         .msg-time { font-size: 11px; color: #1b5a63; font-weight: 500; margin-left: 6px; }
         .msg-body { font-size: 14px; color: #032b30; margin-top: 3px; font-weight: 500; }
+        
         .chat-input-bar { padding: 20px; }
         .input-box-wrapper { background: rgba(255, 255, 255, 0.6); border: 2px solid rgba(255, 255, 255, 0.7); border-radius: 30px; padding: 12px 20px; display: flex; align-items: center; }
         .input-box-wrapper input { flex: 1; background: transparent; border: none; outline: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 500; color: #032b30; }
         .send-btn { background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); border: none; color: white; padding: 7px 18px; border-radius: 20px; font-weight: 700; margin-left: 10px; font-size: 12px; }
+        
         #tiktok-view { display: none; width: 100%; height: 100%; justify-content: center; align-items: center; }
+        .fyp-container { width: 380px; height: 100%; background: #000; border-radius: 32px; border: 4px solid rgba(255,255,255,0.6); position: relative; overflow: hidden; }
+        .fyp-video { width: 100%; height: 100%; object-fit: cover; }
+        .fyp-overlay-right { position: absolute; right: 15px; bottom: 120px; display: flex; flex-direction: column; gap: 22px; color: white; z-index: 10; }
+        .action-icon-wrapper { text-align: center; font-size: 24px; text-shadow: 0 2px 5px rgba(0,0,0,0.9); }
+        .action-icon-wrapper span { display: block; font-size: 11px; font-weight: 800; }
+        .fyp-overlay-bottom { position: absolute; left: 20px; bottom: 25px; color: white; text-align: left; z-index: 10; max-width: 80%; text-shadow: 0 2px 5px rgba(0,0,0,0.9); }
+        .fyp-author { font-weight: 800; font-size: 15px; }
+        .fyp-caption { font-size: 13px; line-height: 1.4; }
