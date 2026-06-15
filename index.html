@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✧*̥ cdcord // tropical aero beach club *̥✧</title>
+    <title>✧*̥ cdcord // tropical brainrot client *̥✧</title>
+    <!-- Importing Cool, Classy, High-Aesthetic Modern Typography -->
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
         * {
@@ -13,238 +14,220 @@
         }
         
         body {
-            /* Vibrant Tropical Aqua & Sun-soaked Neon Pink Beach Gradient */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #032b30;
+            overflow: hidden;
             background: linear-gradient(135deg, #00f2fe 0%, #4facfe 35%, #ff758f 75%, #ffbc00 100%);
             background-attachment: fixed;
-            font-family: 'Fredoka', sans-serif;
-            color: #032b30;
-            overflow-x: hidden;
-            position: relative;
+            letter-spacing: -0.2px;
             
-            /* Cute Pink Flip Phone Cursor */
-            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='32' height='32' viewBox='0 0 32 32'><path d='M22,6 H10 C7.8,6 6,7.8 6,10 V22 C6,24.2 7.8,26 10,26 H22 C24.2,26 26,24.2 26,22 V10 C26,7.8 24.2,6 22,6 Z' fill='%23ff9ff3' stroke='%23f368e0' stroke-width='2'/><path d='M10,10 H22 V14 H10 Z' fill='%23ffffff' opacity='0.7'/><circle cx='11' cy='18' r='1.5' fill='%23ffffff'/><circle cx='16' cy='18' r='1.5' fill='%23ffffff'/><circle cx='21' cy='18' r='1.5' fill='%23ffffff'/><path d='M8,4 C12,2 20,2 24,4 L22,7 C19,6 13,6 10,7 Z' fill='%23f368e0'/></svg>") 16 16, auto;
+            /* Cute Pink Hibiscus Flower Cursor */
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='32' height='32' viewBox='0 0 32 32'><path d='M16,2 C17.5,6 19,8 23,7 C21,11 22,13.5 26,14 C22,15 21,18 22,22 C18,20 16.5,21 16,25 C15.5,21 14,20 10,22 C11,18 10,15 6,14 C10,13.5 11,11 9,7 C13,8 14.5,6 16,2 Z' fill='%23ff4d6d' stroke='%23ffb142' stroke-width='2'/><circle cx='16' cy='14' r='2' fill='%23ffb142'/></svg>") 16 14, auto;
         }
 
-        a, button, input {
-            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='32' height='32' viewBox='0 0 32 32'><path d='M22,6 H10 C7.8,6 6,7.8 6,10 V22 C6,24.2 7.8,26 10,26 H22 C24.2,26 26,24.2 26,22 V10 C26,7.8 24.2,6 22,6 Z' fill='%23ff758f' stroke='%23ff4d6d' stroke-width='2'/><path d='M10,10 H22 V14 H10 Z' fill='%23ffffff' opacity='0.7'/><path d='M8,4 C12,2 20,2 24,4 L22,7 C19,6 13,6 10,7 Z' fill='%23ff4d6d'/></svg>") 16 16, pointer;
+        /* Hover Star Sparkle Cursor */
+        a, button, input, .server-icon, .channel-item, .tab-btn {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='32' height='32' viewBox='0 0 32 32'><path d='M16,4 L19,11 L26,12 L21,17 L23,24 L16,20 L9,24 L11,17 L6,12 L13,11 Z' fill='%2300f2fe' stroke='%23ffffff' stroke-width='2'/></svg>") 16 16, pointer;
         }
 
-        /* Ambient Pool Bubbles and Hibiscus Background Accents */
-        body::before {
-            content: '🌺';
-            position: absolute;
-            font-size: 80px;
-            top: 10%; right: 5%;
-            opacity: 0.25;
-            animation: float 6s ease-in-out infinite alternate;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); }
-            100% { transform: translateY(-15px) rotate(15deg); }
-        }
-
-        /* Top Bar Navigation (Requested: cdcord on left) */
         header {
             background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            padding: 18px 30px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        .nav-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .brand-logo {
-            font-family: 'Comfortaa', cursive;
-            font-size: 28px;
-            font-weight: 700;
-            color: #032b30;
-            text-shadow: 2px 2px 0px rgba(255,255,255,0.8);
-        }
-        .brand-logo span {
-            color: #ff3366;
-            font-size: 20px;
-            margin-left: 5px;
-        }
-
-        /* Main Glass Window Framework */
-        .app-view-container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-        
-        .window-frame {
-            background: rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-radius: 30px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1), inset 1px 1px 0px rgba(255,255,255,0.7);
-            overflow: hidden;
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            max-width: 800px;
-            margin: 0 auto;
+            padding: 10px 25px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+        .brand-logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: #032b30;
+            letter-spacing: -1px;
+            text-transform: lowercase;
+        }
+        .brand-logo span { 
+            color: #ff3366; 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 0px;
+            vertical-align: super;
+            margin-left: 2px;
         }
         
-        /* Aqua Vista Title Bar */
-        .window-header {
-            background: linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.1) 100%);
-            padding: 16px 24px;
+        .tab-btn-group {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+            gap: 8px;
         }
-        .window-dots { display: flex; gap: 10px; }
-        .dot { width: 14px; height: 14px; border-radius: 50%; box-shadow: inset -2px -2px 4px rgba(0,0,0,0.1); }
-        .dot-red { background-color: #ff4d6d; }
-        .dot-yellow { background-color: #ffb142; }
-        .dot-green { background-color: #2ed573; }
-        .window-title { font-size: 14px; font-weight: 700; font-family: 'Comfortaa', cursive; color: #032b30; }
-
-        .portal-content {
-            padding: 40px 30px;
-        }
-        .portal-content h2 {
-            font-size: 36px;
+        .tab-btn {
+            background: rgba(255,255,255,0.4);
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 13px;
             color: #032b30;
-            margin-bottom: 10px;
-            font-family: 'Comfortaa', cursive;
-            text-shadow: 2px 2px 0px rgba(255,255,255,0.9);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: all 0.2s ease;
         }
-        .portal-content p {
-            color: #0b4f57;
-            max-width: 550px;
-            margin: 0 auto 30px auto;
-            font-size: 16px;
-            font-weight: 500;
+        .tab-btn.active {
+            background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+            color: white;
+            border-color: rgba(255,255,255,0.2);
+            box-shadow: 0 4px 12px rgba(243,104,224,0.3);
         }
 
-        /* Unblocked Native Emulator Display Box */
-        .emulator-container {
-            width: 100%;
-            height: 480px;
-            background: #000;
-            border-radius: 20px;
-            border: 4px solid rgba(255,255,255,0.6);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        .main-container {
+            display: flex;
+            flex: 1;
             overflow: hidden;
-            margin-bottom: 30px;
+            padding: 15px;
+            gap: 12px;
         }
-        .emulator-iframe {
+
+        /* ---------------- DISCORD PANEL STRUCTURE ---------------- */
+        #discord-view {
+            display: flex;
             width: 100%;
             height: 100%;
-            border: none;
+            gap: 12px;
+        }
+        .server-sidebar {
+            width: 72px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 15px;
+            gap: 12px;
+        }
+        .server-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(180deg, #ff9ff3 0%, #f368e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 18px;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid white;
+        }
+        .server-icon.active {
+            border-radius: 16px;
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            color: #032b30;
         }
 
-        /* 3D Liquid Aqua Buttons */
-        .btn-group {
+        .channel-sidebar {
+            width: 240px;
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            overflow: hidden;
         }
-        .launch-btn {
-            display: inline-block;
-            padding: 16px 35px;
-            font-size: 16px;
-            text-decoration: none;
-            border-radius: 50px; 
-            font-weight: 700;
-            cursor: pointer;
-            border: 2px solid rgba(255,255,255,0.4);
-            font-family: 'Fredoka', sans-serif;
+        .server-title-bar { 
+            padding: 18px; 
+            font-family: 'Syne', sans-serif; 
+            font-size: 16px; 
+            font-weight: 800; 
+            border-bottom: 1px solid rgba(255,255,255,0.3); 
+            text-align: left;
+            letter-spacing: -0.5px;
+        }
+        .channel-list { padding: 15px 10px; display: flex; flex-direction: column; gap: 4px; flex: 1; overflow-y: auto; }
+        .category-title { font-size: 11px; text-transform: uppercase; font-weight: 800; color: #1b5a63; margin-top: 12px; margin-bottom: 4px; padding-left: 8px; letter-spacing: 0.5px; text-align: left; }
+        .channel-item { padding: 9px 14px; border-radius: 30px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: #032b30; transition: all 0.2s; }
+        .channel-item::before { content: '#'; font-weight: 800; color: #ff758f; }
+        .channel-item.active { background: rgba(255, 255, 255, 0.6); color: #000; }
+
+        .chat-area {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .chat-header { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.3); font-size: 15px; font-weight: 800; text-align: left; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .chat-header::before { content: '#'; color: #ff758f; margin-right: 4px; }
+        .message-stream { flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 16px; overflow-y: auto; }
+        .msg-card { display: flex; gap: 14px; text-align: left; }
+        .msg-avatar { width: 38px; height: 38px; border-radius: 50%; background: #4facfe; border: 2px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+        .msg-avatar.pink { background: #ff9ff3; }
+        .msg-avatar.green { background: #70e000; }
+        .msg-details { display: flex; flex-direction: column; }
+        .msg-author { font-size: 14px; font-weight: 700; color: #000; }
+        .msg-time { font-size: 11px; color: #1b5a63; font-weight: 500; margin-left: 6px; }
+        .msg-body { font-size: 14px; color: #032b30; margin-top: 3px; font-weight: 500; line-height: 1.4; }
+
+        .chat-input-bar { padding: 20px; }
+        .input-box-wrapper { background: rgba(255, 255, 255, 0.6); border: 2px solid rgba(255, 255, 255, 0.7); border-radius: 30px; padding: 12px 20px; display: flex; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .input-box-wrapper input { flex: 1; background: transparent; border: none; outline: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 500; color: #032b30; }
+        .send-btn { background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); border: none; color: white; padding: 7px 18px; border-radius: 20px; font-weight: 700; margin-left: 10px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; }
+
+        /* ---------------- TIKTOK PORTAL STRUCTURE ---------------- */
+        #tiktok-view {
+            display: none;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+        .fyp-container {
+            width: 380px;
+            height: 100%;
+            background: #000;
+            border-radius: 32px;
+            border: 4px solid rgba(255,255,255,0.6);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.25);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1), inset 0 3px 3px rgba(255,255,255,0.3);
-            transition: all 0.2s ease;
-            color: #fff;
         }
-        .launch-btn::before {
-            content: '';
+        .fyp-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .fyp-overlay-right {
             position: absolute;
-            top: 0; left: 0; right: 0; height: 50%;
-            background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
-            border-radius: 50px 50px 0 0;
+            right: 15px;
+            bottom: 120px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            color: white;
+            z-index: 10;
         }
-        .btn-pink { background: linear-gradient(180deg, #ff9ff3 0%, #f368e0 100%); }
-        .btn-pink:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(243,104,224,0.3); }
-        .btn-blue { background: linear-gradient(180deg, #00f2fe 0%, #4facfe 100%); color: #032b30; }
-        .btn-blue:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(79,172,254,0.3); }
-
-        footer {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 25px 20px;
-            text-align: center;
-            font-size: 14px;
-            color: #032b30;
-            margin-top: 60px;
-            border-top: 2px solid rgba(255, 255, 255, 0.4);
-            font-weight: 500;
+        .action-icon-wrapper { text-align: center; font-size: 24px; text-shadow: 0 2px 5px rgba(0,0,0,0.9); font-weight: 700; }
+        .action-icon-wrapper span { display: block; font-size: 11px; font-weight: 800; margin-top: 3px; font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .fyp-overlay-bottom {
+            position: absolute;
+            left: 20px;
+            bottom: 25px;
+            color: white;
+            text-align: left;
+            z-index: 10;
+            max-width: 80%;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.9);
         }
-    </style>
-</head>
-<body>
-
-    <!-- Header Navigation (Requested: name set to cdcord) -->
-    <header>
-        <div class="nav-inner">
-            <div class="brand-logo">✿ cdcord <span>hub</span> ✿</div>
-        </div>
-    </header>
-
-    <!-- Main Workspace Application -->
-    <main class="app-view-container">
-
-        <div class="window-frame">
-            <div class="window-header">
-                <div class="window-dots">
-                    <div class="dot dot-red"></div>
-                    <div class="dot dot-yellow"></div>
-                    <div class="dot dot-green"></div>
-                </div>
-                <div class="window-title">🌺 aloha tropical setup 🌺</div>
-                <div style="width: 52px;"></div>
-            </div>
-            
-            <div class="portal-content">
-                <h2>Aloha Club Dashboard</h2>
-                <p>Since the LGfL proxy nodes are completely blocked on this network, we have loaded a secure, local web emulator box right inside your browser window tab below! 🏖️</p>
-                
-                <!-- Embedded Unblocked Emulator Frame (Bypasses URL blocks) -->
-                <div class="emulator-container">
-                    <iframe class="emulator-iframe" src="https://vdo.ninja" title="Unblocked Retro Station"></iframe>
-                </div>
-
-                <div class="btn-group">
-                    <!-- Standard Home connection toggle -->
-                    <a href="https://discord.com" target="_self" class="launch-btn btn-blue">
-                        Launch Discord App (Home Wi-Fi Use) 🏝️
-                    </a>
-                    
-                    <!-- Direct Refresh command trigger -->
-                    <button onclick="location.reload();" class="launch-btn btn-pink">
-                        Refresh Dashboard Frame ✨
-                    </button>
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-    <footer>
-        <p>🌺 2026 cdcord | Beautiful South American Y2K Beach Sandbox Pipeline 🌺</p>
-    </footer>
-
-</body>
-</html>
+        .fyp-author { font-weight: 800; font-size: 15px; margin-bottom: 4px; font-family: 'Plus Jakarta Sans', sans-serif; }
