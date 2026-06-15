@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✧*̥ cdcord // tropical brainrot client *̥✧</title>
+    <title>✧*̥ cdcord // tropical beach client *̥✧</title>
     <style>
-        /* 100% Unblockable System Fonts Configuration */
+        /* Global Reset & Safe System Fonts */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-            letter-spacing: -0.2px;
         }
-        
         body {
             height: 100vh;
             display: flex;
@@ -23,27 +21,16 @@
             background: linear-gradient(135deg, #00f2fe 0%, #4facfe 35%, #ff758f 75%, #ffbc00 100%) !important;
             background-attachment: fixed;
             
-            /* 📱 Safe Custom Pink Flip Phone Cursor Data Layer */
-            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 32 32'><path d='M22,6 H10 C7.8,6 6,7.8 6,10 V22 C6,24.2 7.8,26 10,26 H22 C24.2,26 26,24.2 26,22 V10 C26,7.8 24.2,6 22,6 Z' fill='%23ff9ff3' stroke='%23f368e0' stroke-width='2'/><path d='M10,10 H22 V14 H10 Z' fill='%23ffffff' opacity='0.7'/><circle cx='11' cy='18' r='1.5' fill='%23ffffff'/><circle cx='16' cy='18' r='1.5' fill='%23ffffff'/><circle cx='21' cy='18' r='1.5' fill='%23ffffff'/></svg>") 12 12, auto;
+            /* 🌺 UNBLOCKABLE HIBISCUS CURSOR (No-Crash Format) */
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='40' height='40' style='font-size:24px'><text y='24'>🌺</text></svg>"), auto;
         }
 
-        /* ✨ Safe Hover Sparkle Cursor Data Layer */
-        a, button, input, .server-icon, .channel-item, .tab-btn, .auth-switch span {
-            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 32 32'><path d='M16,4 L19,11 L26,12 L21,17 L23,24 L16,20 L9,24 L11,17 L6,12 L13,11 Z' fill='%2300f2fe' stroke='%23ffffff' stroke-width='2'/></svg>") 12 12, pointer !important;
+        /* ✨ SPARKLE STAR HOVER FOR CHANNELS AND BUTTONS */
+        a, button, input, .server-icon, .channel-item {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='40' height='40' style='font-size:24px'><text y='24'>✨</text></svg>"), pointer;
         }
 
-        /* Ambient Tropical Aero Fluid Reflections */
-        body::before {
-            content: '';
-            position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(0,242,254,0.1) 100%);
-            box-shadow: inset -5px -5px 15px rgba(0,0,0,0.1), inset 5px 5px 15px rgba(255,255,255,0.8);
-            z-index: -1;
-            width: 140px; height: 140px; top: 15%; left: 8%;
-        }
-
-        /* 🚪 FULL DISCORD-STYLE LOGIN & SIGN UP OVERLAY GATEWAY */
+        /* ---------------- 🚪 DEFAULT REGISTRATION ENTRANCE GATES ---------------- */
         .auth-wrapper {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -56,7 +43,7 @@
             justify-content: center !important;
         }
         .auth-box {
-            background: rgba(255, 255, 255, 0.82) !important;
+            background: rgba(255, 255, 255, 0.85) !important;
             border: 2px solid rgba(255,255,255,0.7) !important;
             border-radius: 24px !important;
             padding: 40px !important;
@@ -66,15 +53,15 @@
             text-align: center !important;
         }
         .auth-box h2 { font-size: 28px !important; margin-bottom: 8px !important; color: #032b30 !important; font-weight: 800 !important; }
-        .auth-box p { font-size: 14px !important; color: #1b5a63 !important; margin-bottom: 24px !important; font-weight: 600 !important; }
+        .auth-box p { font-size: 14px !important; color: #1b5a63 !important; margin-bottom: 24px !important; font-weight: 500 !important; }
         .input-group { text-align: left !important; margin-bottom: 16px !important; width: 100% !important; }
         .input-group label { display: block !important; font-size: 11px !important; text-transform: uppercase !important; font-weight: 800 !important; color: #032b30 !important; margin-bottom: 6px !important; letter-spacing: 0.5px !important; }
-        .input-group input { width: 100% !important; padding: 12px 16px !important; border-radius: 30px !important; border: 2px solid rgba(255,255,255,0.8) !important; background: rgba(255,255,255,0.6) !important; font-size: 14px !important; outline: none !important; color: #032b30 !important; font-weight: 600 !important; }
-        .auth-btn { width: 100% !important; padding: 14px !important; border: none !important; border-radius: 30px !important; background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%) !important; color: white !important; font-weight: 800 !important; font-size: 15px !important; box-shadow: 0 4px 15px rgba(243,104,224,0.3) !important; margin-top: 10px !important; margin-bottom: 15px !important; }
-        .auth-switch { font-size: 13px !important; color: #032b30 !important; font-weight: 600 !important; }
-        .auth-switch span { color: #ff3366 !important; font-weight: 800 !important; text-decoration: underline !important; }
+        .input-group input { width: 100% !important; padding: 12px 16px !important; border-radius: 30px !important; border: 2px solid rgba(255,255,255,0.8) !important; background: rgba(255,255,255,0.6) !important; font-size: 14px !important; outline: none !important; color: #032b30 !important; }
+        .auth-btn { width: 100% !important; padding: 14px !important; border: none !important; border-radius: 30px !important; background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%) !important; color: white !important; font-weight: 700 !important; font-size: 15px !important; box-shadow: 0 4px 15px rgba(243,104,224,0.3) !important; margin-top: 10px !important; margin-bottom: 15px !important; }
+        .auth-switch { font-size: 13px !important; color: #032b30 !important; font-weight: 500 !important; }
+        .auth-switch span { color: #ff3366 !important; font-weight: 700 !important; text-decoration: underline !important; }
 
-        /* ---------------- APP CENTRAL HEADER WORKSPACE ---------------- */
+        /* ---------------- CHAT WORKSPACE DESIGN ---------------- */
         header {
             background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(20px);
@@ -86,24 +73,16 @@
             align-items: center;
             height: 60px;
         }
-        .brand-logo { font-size: 26px; font-weight: 900; color: #032b30; letter-spacing: -1px; text-transform: lowercase; }
+        .brand-logo { font-size: 26px; font-weight: 800; color: #032b30; letter-spacing: -1px; text-transform: lowercase; }
         .brand-logo span { color: #ff3366; font-size: 14px; font-weight: 800; vertical-align: super; margin-left: 2px; }
-        
-        .tab-btn-group { display: flex; gap: 8px; }
-        .tab-btn { background: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.5); padding: 8px 18px; border-radius: 30px; font-weight: 800; font-size: 13px; color: #032b30; transition: all 0.2s ease; }
-        .tab-btn.active { background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); color: white; border-color: rgba(255,255,255,0.2); box-shadow: 0 4px 12px rgba(243,104,224,0.3); }
 
-        .main-container { display: flex; flex: 1; overflow: hidden; padding: 15px; gap: 12px; }
-
-        /* ---------------- TAB VIEW 1: DISCORD CONTAINER LAYOUT ---------------- */
-        #discord-view { display: flex; width: 100%; height: 100%; gap: 12px; }
-        
+        .main-container { display: flex; flex: 1; overflow: hidden; padding: 15px; gap: 12px; height: calc(100vh - 60px); }
         .server-sidebar { width: 72px; background: rgba(255, 255, 255, 0.25); backdrop-filter: blur(20px); border-radius: 24px; border: 2px solid rgba(255, 255, 255, 0.4); display: flex; flex-direction: column; align-items: center; padding-top: 15px; gap: 12px; }
-        .server-icon { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(180deg, #ff9ff3 0%, #f368e0 100%); display: flex; align-items: center; justify-content: center; font-weight: 800; color: white; font-size: 18px; border: 2px solid white; transition: all 0.2s; }
+        .server-icon { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(180deg, #ff9ff3 0%, #f368e0 100%); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 18px; border: 2px solid white; }
         .server-icon.active { border-radius: 16px; background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); color: #032b30; }
-
+        
         .channel-sidebar { width: 240px; background: rgba(255, 255, 255, 0.35); backdrop-filter: blur(20px); border-radius: 24px; border: 2px solid rgba(255, 255, 255, 0.4); display: flex; flex-direction: column; overflow: hidden; }
-        .server-title-bar { padding: 18px; font-size: 16px; font-weight: 900; border-bottom: 1px solid rgba(255,255,255,0.3); text-align: left; }
+        .server-title-bar { padding: 18px; font-size: 16px; font-weight: 800; border-bottom: 1px solid rgba(255,255,255,0.3); text-align: left; }
         .channel-list { padding: 15px 10px; display: flex; flex-direction: column; gap: 4px; flex: 1; overflow-y: auto; }
         .category-title { font-size: 11px; text-transform: uppercase; font-weight: 800; color: #1b5a63; margin-top: 12px; padding-left: 8px; text-align: left; }
         .channel-item { padding: 9px 14px; border-radius: 30px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: #032b30; }
@@ -120,7 +99,7 @@
         .chat-header { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.3); font-size: 15px; font-weight: 800; text-align: left; }
         .chat-header::before { content: '#'; color: #ff758f; margin-right: 4px; }
         
-        /* 🎀 HIGH-GLOSS ANIMATED SCROLLING TEXT MARQUEE BANNER */
+        /* --- 🎀 Y2K ROLLING MARQUEE BANNER --- */
         .marquee-banner {
             background: linear-gradient(90deg, #ff9ff3, #f368e0);
             color: white;
@@ -133,15 +112,33 @@
             white-space: nowrap;
             border-bottom: 1px solid rgba(255,255,255,0.3);
         }
-        .marquee-text {
-            display: inline-block;
-            padding-left: 100%;
-            animation: marquee 16s linear infinite;
+        .marquee-text { display: inline-block; padding-left: 100%; animation: marquee 15s linear infinite; }
+        @keyframes marquee { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-100%, 0, 0); } }
+
+        /* --- SAME-TAB SEARCH SYSTEM CAPSULE --- */
+        .custom-search-container {
+            margin: 15px 20px 5px 20px; 
+            background: rgba(255,255,255,0.3); 
+            padding: 10px; 
+            border-radius: 30px; 
+            border: 1px solid rgba(255,255,255,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        @keyframes marquee {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-100%, 0, 0); }
-        }
+        .custom-search-container input { padding: 8px 15px; border-radius: 20px; border: none; width: 70%; font-size: 13px; color: #032b30; background: rgba(255,255,255,0.5); outline: none; }
+        .search-go-btn { background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); border: none; color: white; padding: 8px 18px; border-radius: 20px; font-weight: 700; font-size: 12px; }
 
         .message-stream { flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 16px; overflow-y: auto; }
         .msg-card { display: flex; gap: 14px; text-align: left; }
+        .msg-avatar { width: 38px; height: 38px; border-radius: 50%; background: #4facfe; border: 2px solid white; flex-shrink: 0; }
+        .msg-avatar.pink { background: #ff9ff3; }
+        .msg-avatar.green { background: #70e000; }
+        .msg-details { display: flex; flex-direction: column; }
+        .msg-author { font-size: 14px; font-weight: 700; color: #000; }
+        .msg-time { font-size: 11px; color: #1b5a63; font-weight: 500; margin-left: 6px; }
+        .msg-body { font-size: 14px; color: #032b30; margin-top: 3px; font-weight: 500; }
+        
+        .chat-input-bar { padding: 20px; }
+        .input-box-wrapper { background: rgba(255, 255, 255, 0.6); border: 2px solid rgba(255, 255, 255, 0.7); border-radius: 30px; padding: 12px 20px; display: flex; align-items: center; }
+        .input-box-wrapper input { flex: 1; background: transparent; border: none; outline: none; font-size: 14px; font-weight: 500; color: #032b30; }
