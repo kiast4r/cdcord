@@ -33,6 +33,14 @@
             color: var(--text-dark);
             overflow-x: hidden;
             position: relative;
+
+            /* Cute Pink Telephone Cursor Hack using SVG data string */
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='32' height='32' viewBox='0 0 32 32'><path d='M22,6 H10 C7.8,6 6,7.8 6,10 V22 C6,24.2 7.8,26 10,26 H22 C24.2,26 26,24.2 26,22 V10 C26,7.8 24.2,6 22,6 Z' fill='%23ff9ff3' stroke='%23f368e0' stroke-width='2'/><path d='M10,10 H22 V14 H10 Z' fill='%23ffffff' opacity='0.7'/><circle cx='11' cy='18' r='1.5' fill='%23ffffff'/><circle cx='16' cy='18' r='1.5' fill='%23ffffff'/><circle cx='21' cy='18' r='1.5' fill='%23ffffff'/><circle cx='11' cy='22' r='1.5' fill='%23ffffff'/><circle cx='16' cy='22' r='1.5' fill='%23ffffff'/><circle cx='21' cy='22' r='1.5' fill='%23ffffff'/><path d='M8,4 C12,2 20,2 24,4 L22,7 C19,6 13,6 10,7 Z' fill='%23f368e0'/></svg>") 16 16, auto;
+        }
+
+        /* Interactive items get the cursor pointer variant */
+        a, button, input {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='32' height='32' viewBox='0 0 32 32'><path d='M22,6 H10 C7.8,6 6,7.8 6,10 V22 C6,24.2 7.8,26 10,26 H22 C24.2,26 26,24.2 26,22 V10 C26,7.8 24.2,6 22,6 Z' fill='%23ff758f' stroke='%23ff4d6d' stroke-width='2'/><path d='M10,10 H22 V14 H10 Z' fill='%23ffffff' opacity='0.7'/><circle cx='11' cy='18' r='1.5' fill='%23ffffff'/><circle cx='16' cy='18' r='1.5' fill='%23ffffff'/><circle cx='21' cy='18' r='1.5' fill='%23ffffff'/><circle cx='11' cy='22' r='1.5' fill='%23ffffff'/><circle cx='16' cy='22' r='1.5' fill='%23ffffff'/><circle cx='21' cy='22' r='1.5' fill='%23ffffff'/><path d='M8,4 C12,2 20,2 24,4 L22,7 C19,6 13,6 10,7 Z' fill='%23ff4d6d'/></svg>") 16 16, pointer;
         }
 
         /* Ambient floating water bubble reflections */
@@ -55,7 +63,6 @@
 
         /* Top Bar Navigation Hub */
         header {
-            /* Windows Vista Style High-Gloss Aero Glass Blur */
             background: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -198,9 +205,9 @@
             padding: 16px 20px;
             font-size: 17px;
             text-decoration: none;
-            border-radius: 50px; /* Highly rounded bubble shapes */
+            border-radius: 50px; 
             font-weight: 700;
-            cursor: pointer;
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='32' height='32' viewBox='0 0 32 32'><path d='M22,6 H10 C7.8,6 6,7.8 6,10 V22 C6,24.2 7.8,26 10,26 H22 C24.2,26 26,24.2 26,22 V10 C26,7.8 24.2,6 22,6 Z' fill='%23ff758f' stroke='%23ff4d6d' stroke-width='2'/><path d='M10,10 H22 V14 H10 Z' fill='%23ffffff' opacity='0.7'/><circle cx='11' cy='18' r='1.5' fill='%23ffffff'/><circle cx='16' cy='18' r='1.5' fill='%23ffffff'/><circle cx='21' cy='18' r='1.5' fill='%23ffffff'/><circle cx='11' cy='22' r='1.5' fill='%23ffffff'/><circle cx='16' cy='22' r='1.5' fill='%23ffffff'/><circle cx='21' cy='22' r='1.5' fill='%23ffffff'/><path d='M8,4 C12,2 20,2 24,4 L22,7 C19,6 13,6 10,7 Z' fill='%23ff4d6d'/></svg>") 16 16, pointer;
             border: 2px solid rgba(255,255,255,0.4);
             font-family: 'Fredoka', sans-serif;
             position: relative;
@@ -218,66 +225,3 @@
             border-radius: 50px 50px 0 0;
         }
 
-        .btn-blue { 
-            background: linear-gradient(180deg, #70a1ff 0%, #1e90ff 100%); 
-        }
-        .btn-blue:hover { 
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 12px 24px rgba(30,144,255,0.3), inset 0 4px 4px rgba(255,255,255,0.4);
-        }
-        
-        .btn-pink { 
-            background: linear-gradient(180deg, #ff9ff3 0%, #f368e0 100%); 
-        }
-        .btn-pink:hover { 
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 12px 24px rgba(243,104,224,0.3), inset 0 4px 4px rgba(255,255,255,0.4);
-        }
-
-        /* Whimsical Aero Footer */
-        footer {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            padding: 25px 20px;
-            text-align: center;
-            font-size: 14px;
-            color: var(--text-dark);
-            margin-top: 80px;
-            border-top: 2px solid var(--glass-border);
-            font-weight: 500;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Header Navigation -->
-    <header>
-        <div class="nav-inner">
-            <div class="brand-logo">✿ Leg<span>cord</span> Hub ✿</div>
-        </div>
-    </header>
-
-    <!-- Main Workspace Application -->
-    <main class="app-view-container">
-
-        <div class="window-frame">
-            <div class="window-header">
-                <div class="window-dots">
-                    <div class="dot dot-red"></div>
-                    <div class="dot dot-yellow"></div>
-                    <div class="dot dot-green"></div>
-                </div>
-                <div class="window-title">✧ bubble app setup ✧</div>
-                <div style="width: 52px;"></div>
-            </div>
-            <div class="portal-content">
-                <h2 class="sparkle-text">Chromebook Hub</h2>
-                <p>If the school LGfL network blocks your login page, trigger the glassy proxy node below to launch Discord unblocked right here!</p>
-                
-                <div class="btn-group">
-                    <!-- Node 1: Direct Link (Works at Home) -->
-                    <a href="https://discord.com" target="_self" class="launch-btn btn-blue">
-                        Node 1: Direct Link (Home Use) 🏝️
-                    </a>
-                    
