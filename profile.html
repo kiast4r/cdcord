@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✧*̥ cdcord // style your profile *̥✧</title>
+    <style>
+        /* Y2K Tropical Frutiger Aero Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 35%, #ff758f 75%, #ffbc00 100%);
+            background-attachment: fixed;
+            
+            /* Unblockable Hibiscus Cursor Hook */
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='40' height='40' style='font-size:24px'><text y='24'>🌺</text></svg>"), auto;
+        }
+
+        /* High-Gloss Aero Glass Profile Container Frame */
+        .profile-container {
+            background: rgba(255, 255, 255, 0.75);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 28px;
+            padding: 40px;
+            width: 90%;
+            max-width: 440px;
+            box-shadow: 0 25px 55px rgba(0,0,0,0.12);
+            text-align: center;
+        }
+
+        h3 { font-size: 26px; margin-bottom: 5px; color: #032b30; letter-spacing: -0.5px; }
+        .subtitle { font-size: 13px; color: #1b5a63; margin-bottom: 25px; font-weight: 500; }
+
+        /* Y2K Live Profile Preview Card Widget */
+        .profile-preview-card {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255,255,255,0.6);
+            border-radius: 18px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            text-align: left;
+        }
+        .preview-avatar {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            background: #ff758f;
+        }
+        .preview-info h4 { font-size: 16px; color: #032b30; font-weight: 700; }
+        .preview-info p { font-size: 12px; color: #1b5a63; font-weight: 500; margin-top: 2px; }
+
+        /* Layout Customizer Inputs */
+        .input-group { text-align: left; margin-bottom: 20px; width: 100%; }
+        .input-group label { display: block; font-size: 11px; text-transform: uppercase; font-weight: 800; color: #032b30; margin-bottom: 8px; letter-spacing: 0.5px; }
+        
+        .color-picker-grid { display: flex; gap: 12px; }
+        .color-dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 3px 6px rgba(0,0,0,0.1); cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='40' height='40' style='font-size:24px'><text y='24'>✨</text></svg>"), pointer; }
+        
+        .styled-select, .styled-input {
+            width: 100%; padding: 12px 16px; border-radius: 30px; border: 2px solid #ccc; background: #fff; font-size: 14px; outline: none; color: #032b30; font-weight: 500;
+        }
+
+        /* 3D Liquid Aqua Buttons */
+        .action-btn { 
+            display: block; width: 100%; padding: 14px; border: none; border-radius: 30px; 
+            font-weight: 700; font-size: 15px; text-align: center; text-decoration: none; cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='40' height='40' style='font-size:24px'><text y='24'>✨</text></svg>"), pointer; margin-top: 10px;
+        }
+        .btn-pink { background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); color: white; box-shadow: 0 4px 15px rgba(243,104,224,0.3); }
+        .btn-blue { background: #fff; border: 2px solid #ccc; color: #1b5a63; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <!-- Main Profile Editor Panel -->
+    <div class="profile-container">
+        <h3>✧ edit profile ✧</h3>
+        <p class="subtitle">customize your aloha identity</p>
+        
+        <!-- Live Preview UI Component -->
+        <div class="profile-preview-card">
+            <div class="preview-avatar" id="avatarPreview"></div>
+            <div class="preview-info">
+                <h4 id="userPreview">BeachGirl06</h4>
+                <p id="bioPreview">looksmaxxing status active...</p>
+            </div>
+        </div>
+
+        <!-- Avatar Asset Shading Options -->
+        <div class="input-group">
+            <label>Avatar Color</label>
+            <div class="color-picker-grid">
+                <div class="color-dot" style="background: #ff758f;" onclick="updateColor('#ff758f')"></div>
+                <div class="color-dot" style="background: #00f2fe;" onclick="updateColor('#00f2fe')"></div>
+                <div class="color-dot" style="background: #70e000;" onclick="updateColor('#70e000')"></div>
+                <div class="color-dot" style="background: #ffb142;" onclick="updateColor('#ffb142')"></div>
+                <div class="color-dot" style="background: #9b51e0;" onclick="updateColor('#9b51e0')"></div>
+            </div>
+        </div>
+
+        <!-- Status Indicator options -->
+        <div class="input-group">
+            <label>Custom Status Dot</label>
+            <select id="statusSelect" class="styled-select" onchange="updateLivePreview()">
+                <option value="🟢">🟢 Online / Stacking Aura</option>
+                <option value="🌙">🌙 Idle / Mewing Streak</option>
+                <option value="🔴">🔴 Do Not Disturb / Cooking</option>
+                <option value="⚫">⚫ Invisible / Cloaked</option>
+            </select>
+        </div>
+
+        <!-- Brainrot text inputs -->
+        <div class="input-group">
+            <label>Aesthetic Bio</label>
+            <input type="text" id="bioInput" class="styled-input" placeholder="Enter brainrot tagline..." value="looksmaxxing status active..." oninput="updateLivePreview()">
+        </div>
+
+        <!-- Save and Back Button Blocks -->
+        <button class="action-btn btn-pink" onclick="saveProfileChanges()">Save Custom Profile ✨</button>
+        <a href="index.html" class="action-btn btn-blue">◀ Back to Chat Dashboard</a>
+    </div>
+
+    <!-- Interface Script Logic Node (LocalStorage Syncing) -->
+    <script>
+        let currentBgColor = '#ff758f';
+
+        // Auto load saved data if it exists in Chromebook browser storage cache
+        window.onload = function() {
+            const storedUser = localStorage.getItem('currentUser') || 'BeachGirl06';
+            document.getElementById('userPreview').innerText = storedUser;
+            
+            const storedColor = localStorage.getItem('profileColor');
+            const storedBio = localStorage.getItem('profileBio');
+            
+            if(storedColor) updateColor(storedColor);
+            if(storedBio) {
+                document.getElementById('bioInput').value = storedBio;
+                document.getElementById('bioPreview').innerText = storedBio;
+            }
+        };
+
+        function updateColor(color) {
+            currentBgColor = color;
+            document.getElementById('avatarPreview').style.background = color;
+        }
+
+        function updateLivePreview() {
+            const bioText = document.getElementById('bioInput').value;
+            document.getElementById('bioPreview').innerText = bioText || 'No bio text set...';
+        }
+
+        function saveProfileChanges() {
+            const bioValue = document.getElementById('bioInput').value.trim();
+            const statusValue = document.getElementById('statusSelect').value;
+
+            // Committing values safely to the offline memory structures
+            localStorage.setItem('profileColor', currentBgColor);
+            localStorage.setItem('profileBio', bioValue);
+            localStorage.setItem('profileStatus', statusValue);
+
+            alert('Profile saved! Redirecting to beach club... 🌺');
+            window.location.href = 'index.html'; // Same-tab bounce back to chats
+        }
+    </script>
+</body>
+</html>
