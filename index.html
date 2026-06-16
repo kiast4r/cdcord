@@ -5,11 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>✧*̥ cdcord // tropical beach client *̥✧</title>
     <link rel="stylesheet" href="style.css">
+    
+    <!-- 🔄 CHROMEBOOK EXCLUSIVE SESSION RECOVERY LAYER -->
+    <script>
+        (function () {
+            // Checks for a saved session immediately before the browser renders the page to prevent blank flash screens
+            const savedUser = localStorage.getItem('currentSessionUser');
+            if (savedUser) {
+                document.write('<style>#authScreen { display: none !important; }</style>');
+                document.addEventListener("DOMContentLoaded", function () {
+                    document.getElementById('activeProfileName').innerText = savedUser;
+                    loadSavedCustomizations(savedUser);
+                });
+            }
+        })();
+    </script>
 </head>
 <body>
 
-    <!-- 🚪 SIGN UP & LOGIN GATES -->
+    <!-- 🚪 AUTHENTICATION ENTRANCE GATES (Sign-Up Form Loads First) -->
     <div class="auth-wrapper" id="authScreen">
+        <!-- Tab 1: Create Account / Sign-Up Form Card -->
         <div class="auth-box" id="signupBox">
             <h2>Create an account</h2>
             <p>Join the brainrot aero beach club 🌺</p>
@@ -25,6 +41,7 @@
             <div class="auth-switch">Already have an account? <span id="switchToLogin">Log In</span></div>
         </div>
 
+        <!-- Tab 2: Welcome Back / Log-In Form Card -->
         <div class="auth-box" id="loginBox" style="display: none;">
             <h2>Welcome back!</h2>
             <p>We're so excited to see you again! 🏝️</p>
@@ -41,24 +58,23 @@
         </div>
     </div>
 
-    <!-- 🌐 MAIN APP GATEWAY -->
+    <!-- 🌐 MAIN APP LAYER -->
     <header>
         <div class="brand-logo">✿ cdcord <span>hub</span> ✿</div>
     </header>
 
     <div class="main-container">
         <div id="discord-view">
-            <!-- Sidebar Servers -->
             <div class="server-sidebar">
                 <div class="server-icon active">🌺</div>
                 <div class="server-icon">🐬</div>
                 <div class="server-icon">🍉</div>
             </div>
 
-            <!-- Sidebar Channels -->
             <div class="channel-sidebar">
                 <div class="server-title-bar">Brainrot Beach Club</div>
                 
+                <!-- Same-Tab Proxy Tester Shell -->
                 <div class="custom-search-container">
                     <input type="text" id="custom-node-url" placeholder="Paste hidden proxy node... ✧">
                     <button id="proxyTestBtn" class="search-go-btn">Test! 🚀</button>
@@ -71,22 +87,21 @@
                     <div class="channel-item">mewing-streak</div>
                 </div>
                 
-                <!-- Interactive User Footer linked directly to profile file -->
+                <!-- Link to separate profile.html file -->
                 <a href="profile.html" style="text-decoration:none; color:inherit; display:block;">
-                    <div class="user-footer" id="openProfileBtn" title="Click to edit your profile page! ✨">
+                    <div class="user-footer" title="Click to edit your Y2K profile! ✨">
                         <div class="user-avatar-wrapper">
-                            <div class="user-avatar" id="footerAvatar" style="background: #ff758f;"></div>
-                            <div class="status-dot" id="footerStatusDot" style="background: #2ed573;"></div>
+                            <div class="user-avatar" id="footerAvatar"></div>
+                            <div class="status-dot" id="footerStatusDot"></div>
                         </div>
                         <div class="user-info">
                             <div class="user-name" id="activeProfileName">GuestUser</div>
-                            <div class="user-tag" id="activeProfileBio">mewing status active</div>
+                            <div class="user-tag" id="activeProfileBio">mewing simulator active</div>
                         </div>
                     </div>
                 </a>
             </div>
 
-            <!-- Main Chat Panel -->
             <div class="chat-area">
                 <div class="chat-header" id="currentChannelHeader">announcements</div>
                 
@@ -103,7 +118,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="chat-input-bar">
                     <div class="input-box-wrapper">
                         <input type="text" id="msgInput" placeholder="Type brainrot text here... ✧">
@@ -114,13 +128,7 @@
         </div>
     </div>
 
-    <!-- Script triggers loaded cleanly at the base to stop page freezing -->
-    <script src="session.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>    <!-- Add the new session keeper script file here -->
-    <script src="session.js"></script>
+    <!-- Connecting straight to your operational script logic file -->
     <script src="script.js"></script>
 </body>
 </html>
-
