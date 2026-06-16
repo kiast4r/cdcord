@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✧*̥ cdcord // tropical client *̥✧</title>
-    <!-- Connecting your layout to your separate styling and script files -->
+    <title>✧*̥ cdcord // tropical beach client *̥✧</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -72,13 +71,19 @@
                     <div class="channel-item">mewing-streak</div>
                 </div>
                 
-                <div class="user-footer">
-                    <div class="user-avatar"></div>
-                    <div class="user-info">
-                        <div class="user-name" id="activeProfileName">GuestUser</div>
-                        <div class="user-tag">#2026</div>
+                <!-- Interactive User Footer linked directly to profile file -->
+                <a href="profile.html" style="text-decoration:none; color:inherit; display:block;">
+                    <div class="user-footer" id="openProfileBtn" title="Click to edit your profile page! ✨">
+                        <div class="user-avatar-wrapper">
+                            <div class="user-avatar" id="footerAvatar" style="background: #ff758f;"></div>
+                            <div class="status-dot" id="footerStatusDot" style="background: #2ed573;"></div>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name" id="activeProfileName">GuestUser</div>
+                            <div class="user-tag" id="activeProfileBio">mewing status active</div>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Main Chat Panel -->
@@ -109,7 +114,8 @@
         </div>
     </div>
 
-    <!-- Script loading at the very bottom so it doesn't freeze the screen -->
+    <!-- Script triggers loaded cleanly at the base to stop page freezing -->
+    <script src="session.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
