@@ -4,131 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>✧*̥ cdcord // tropical beach client *̥✧</title>
-    <link rel="stylesheet" href="style.css">
     
-    <!-- 🔄 CHROMEBOOK EXCLUSIVE SESSION RECOVERY LAYER -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            color: #032b30;
+            overflow: hidden;
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 35%, #ff758f 75%, #ffbc00 100%) !important;
+            background-attachment: fixed;
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='40' height='40' style='font-size:24px'><text y='24'>🌺</text></svg>"), auto;
+        }
+        a, button, input, .server-icon, .channel-item {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='40' height='40' style='font-size:24px'><text y='24'>✨</text></svg>"), pointer;
+        }
+
+        /* --- SIGN UP & LOGIN GATES --- */
+        .auth-wrapper {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .auth-box {
+            background: rgba(255, 255, 255, 0.85);
+            border: 2px solid rgba(255,255,255,0.7);
+            border-radius: 24px;
+            padding: 40px;
+            width: 90%;
+            max-width: 420px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+        .auth-box h2 { font-size: 28px; margin-bottom: 8px; color: #032b30; font-weight: 800; }
+        .auth-box p { font-size: 14px; color: #1b5a63; margin-bottom: 24px; font-weight: 500; }
+        .input-group { text-align: left; margin-bottom: 16px; width: 100%; }
+        .input-group label { display: block; font-size: 11px; text-transform: uppercase; font-weight: 800; color: #032b30; margin-bottom: 6px; letter-spacing: 0.5px; }
+        .input-group input { width: 100%; padding: 12px 16px; border-radius: 30px; border: 2px solid rgba(255,255,255,0.8); background: rgba(255,255,255,0.6); font-size: 14px; outline: none; color: #032b30; }
+        .auth-btn { width: 100%; padding: 14px; border: none; border-radius: 30px; background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); color: white; font-weight: 700; font-size: 15px; box-shadow: 0 4px 15px rgba(243,104,224,0.3); margin-top: 10px; margin-bottom: 15px; }
+        .auth-switch { font-size: 13px; color: #032b30; font-weight: 500; }
+        .auth-switch span { color: #ff3366; font-weight: 700; text-decoration: underline; }
+
+        /* ---------------- APP FRAMEWORK ---------------- */
+        header { background: rgba(255, 255, 255, 0.25); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 10px 25px; border-bottom: 2px solid rgba(255, 255, 255, 0.4); display: flex; justify-content: space-between; align-items: center; height: 60px; }
+        .brand-logo { font-size: 26px; font-weight: 800; color: #032b30; letter-spacing: -1px; text-transform: lowercase; }
+        .brand-logo span { color: #ff3366; font-size: 14px; font-weight: 800; vertical-align: super; margin-left: 2px; }
+
+        .main-container { display: flex; flex: 1; overflow: hidden; padding: 15px; gap: 12px; height: calc(100vh - 60px); }
+        .server-sidebar { width: 72px; background: rgba(255, 255, 255, 0.25); backdrop-filter: blur(20px); border-radius: 24px; border: 2px solid rgba(255, 255, 255, 0.4); display: flex; flex-direction: column; align-items: center; padding-top: 15px; gap: 12px; }
+        .server-icon { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(180deg, #ff9ff3 0%, #f368e0 100%); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 18px; border: 2px solid white; }
+        .server-icon.active { border-radius: 16px; background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); color: #032b30; }
+        
+        .channel-sidebar { width: 240px; background: rgba(255, 255, 255, 0.35); backdrop-filter: blur(20px); border-radius: 24px; border: 2px solid rgba(255, 255, 255, 0.4); display: flex; flex-direction: column; overflow: hidden; justify-content: space-between; }
+        .sidebar-top { display: flex; flex-direction: column; width: 100%; }
+        .server-title-bar { padding: 18px; font-size: 16px; font-weight: 800; border-bottom: 1px solid rgba(255,255,255,0.3); text-align: left; }
+        .channel-list { padding: 15px 10px; display: flex; flex-direction: column; gap: 4px; overflow-y: auto; }
+        .category-title { font-size: 11px; text-transform: uppercase; font-weight: 800; color: #1b5a63; margin-top: 12px; padding-left: 8px; text-align: left; }
+        .channel-item { padding: 9px 14px; border-radius: 30px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: #032b30; }
+        .channel-item::before { content: '#'; font-weight: 800; color: #ff758f; }
+        .channel-item.active { background: rgba(255, 255, 255, 0.6); color: #000; }
+        
+        /* User Footer Layout Block */
+        .user-footer-container { display: flex; align-items: center; justify-content: space-between; padding: 10px; background: rgba(255,255,255,0.2); border-top: 1px solid rgba(255,255,255,0.3); gap: 4px; }
+        .user-footer { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; padding: 6px; border-radius: 12px; flex: 1; }
+        .user-footer:hover { background: rgba(255,255,255,0.3); }
+        .user-avatar-wrapper { position: relative; display: inline-block; }
+        .user-avatar { width: 32px; height: 32px; border-radius: 50%; background: #ff758f; border: 2px solid white; }
+        .status-dot { position: absolute; bottom: -2px; right: -2px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; background: #2ed573; }
+        .user-info { text-align: left; }
+        .user-name { font-size: 13px; font-weight: 700; color: #000; max-width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .user-tag { font-size: 11px; color: #1b5a63; max-width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        
+        /* Neon Log Out Button Style */
+        .logout-btn { background: transparent; border: none; font-size: 16px; padding: 8px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #032b30; transition: background 0.2s; }
+        .logout-btn:hover { background: rgba(255, 77, 109, 0.2); color: #ff4d6d; }
+
+        .chat-area { flex: 1; background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(20px); border-radius: 24px; border: 2px solid rgba(255, 255, 255, 0.4); display: flex; flex-direction: column; overflow: hidden; }
+        .chat-header { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.3); font-size: 15px; font-weight: 800; text-align: left; }
+        .chat-header::before { content: '#'; color: #ff758f; margin-right: 4px; }
+        
+        .marquee-banner { background: linear-gradient(90deg, #ff9ff3, #f368e0); color: white; padding: 6px 0; font-size: 12px; font-weight: 800; overflow: hidden; white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.3); }
+        .marquee-text { display: inline-block; padding-left: 100%; animation: marquee 15s linear infinite; }
+        @keyframes marquee { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-100%, 0, 0); } }
+
+        .custom-search-container { margin: 15px 20px 5px 20px; background: rgba(255,255,255,0.3); padding: 10px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: space-between; }
+        .custom-search-container input { padding: 8px 15px; border-radius: 20px; border: none; width: 60%; font-size: 13px; color: #032b30; background: rgba(255,255,255,0.5); outline: none; }
+        .search-go-btn { background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); border: none; color: white; padding: 8px 14px; border-radius: 20px; font-weight: 700; font-size: 12px; }
+
+        .message-stream { flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 16px; overflow-y: auto; }
+        .msg-card { display: flex; gap: 14px; text-align: left; }
+        .msg-avatar { width: 38px; height: 38px; border-radius: 50%; background: #4facfe; border: 2px solid white; flex-shrink: 0; }
+        .msg-avatar.pink { background: #ff9ff3; }
+        .msg-avatar.green { background: #70e000; }
+        .msg-details { display: flex; flex-direction: column; }
+        .msg-author { font-size: 14px; font-weight: 700; color: #000; }
+        .msg-time { font-size: 11px; color: #1b5a63; font-weight: 500; margin-left: 6px; }
+        .msg-body { font-size: 14px; color: #032b30; margin-top: 3px; font-weight: 500; }
+        
+        .chat-input-bar { padding: 20px; }
+        .input-box-wrapper { background: rgba(255, 255, 255, 0.6); border: 2px solid rgba(255, 255, 255, 0.7); border-radius: 30px; padding: 12px 20px; display: flex; align-items: center; }
+        .input-box-wrapper input { flex: 1; background: transparent; border: none; outline: none; font-size: 14px; font-weight: 500; color: #032b30; }
+        .send-btn { background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); border: none; color: white; padding: 7px 18px; border-radius: 20px; font-weight: 700; margin-left: 10px; font-size: 12px; }
+    </style>
+    
+    <!-- 🔄 LIVE AUTO-LOGIN BYPASS LAYER -->
     <script>
         (function () {
-            // Checks for a saved session immediately before the browser renders the page to prevent blank flash screens
-            const savedUser = localStorage.getItem('currentSessionUser');
-            if (savedUser) {
-                document.write('<style>#authScreen { display: none !important; }</style>');
-                document.addEventListener("DOMContentLoaded", function () {
-                    document.getElementById('activeProfileName').innerText = savedUser;
-                    loadSavedCustomizations(savedUser);
-                });
-            }
-        })();
-    </script>
-</head>
-<body>
-
-    <!-- 🚪 AUTHENTICATION ENTRANCE GATES (Sign-Up Form Loads First) -->
-    <div class="auth-wrapper" id="authScreen">
-        <!-- Tab 1: Create Account / Sign-Up Form Card -->
-        <div class="auth-box" id="signupBox">
-            <h2>Create an account</h2>
-            <p>Join the brainrot aero beach club 🌺</p>
-            <div class="input-group">
-                <label>Username</label>
-                <input type="text" id="regUser" placeholder="Choose a username">
-            </div>
-            <div class="input-group">
-                <label>Password</label>
-                <input type="password" id="regPass" placeholder="Choose a secure password">
-            </div>
-            <button class="auth-btn" id="regSubmitBtn">Register</button>
-            <div class="auth-switch">Already have an account? <span id="switchToLogin">Log In</span></div>
-        </div>
-
-        <!-- Tab 2: Welcome Back / Log-In Form Card -->
-        <div class="auth-box" id="loginBox" style="display: none;">
-            <h2>Welcome back!</h2>
-            <p>We're so excited to see you again! 🏝️</p>
-            <div class="input-group">
-                <label>Username</label>
-                <input type="text" id="loginUser" placeholder="Enter your username">
-            </div>
-            <div class="input-group">
-                <label>Password</label>
-                <input type="password" id="loginPass" placeholder="Enter your password">
-            </div>
-            <button class="auth-btn" id="loginSubmitBtn">Log In</button>
-            <div class="auth-switch">Need an account? <span id="switchToSignup">Register</span></div>
-        </div>
-    </div>
-
-    <!-- 🌐 MAIN APP LAYER -->
-    <header>
-        <div class="brand-logo">✿ cdcord <span>hub</span> ✿</div>
-    </header>
-
-    <div class="main-container">
-        <div id="discord-view">
-            <div class="server-sidebar">
-                <div class="server-icon active">🌺</div>
-                <div class="server-icon">🐬</div>
-                <div class="server-icon">🍉</div>
-            </div>
-
-            <div class="channel-sidebar">
-                <div class="server-title-bar">Brainrot Beach Club</div>
-                
-                <!-- Same-Tab Proxy Tester Shell -->
-                <div class="custom-search-container">
-                    <input type="text" id="custom-node-url" placeholder="Paste hidden proxy node... ✧">
-                    <button id="proxyTestBtn" class="search-go-btn">Test! 🚀</button>
-                </div>
-
-                <div class="channel-list">
-                    <div class="category-title">Text Channels</div>
-                    <div class="channel-item active">announcements</div>
-                    <div class="channel-item">rizz-academy</div>
-                    <div class="channel-item">mewing-streak</div>
-                </div>
-                
-                <!-- Link to separate profile.html file -->
-                <a href="profile.html" style="text-decoration:none; color:inherit; display:block;">
-                    <div class="user-footer" title="Click to edit your Y2K profile! ✨">
-                        <div class="user-avatar-wrapper">
-                            <div class="user-avatar" id="footerAvatar"></div>
-                            <div class="status-dot" id="footerStatusDot"></div>
-                        </div>
-                        <div class="user-info">
-                            <div class="user-name" id="activeProfileName">GuestUser</div>
-                            <div class="user-tag" id="activeProfileBio">mewing simulator active</div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="chat-area">
-                <div class="chat-header" id="currentChannelHeader">announcements</div>
-                
-                <div class="marquee-banner">
-                    <div class="marquee-text">✧ cdcord summer club ✧ infinite aura active ✧ no school filters can catch us here 🤫🧏‍♂️ ✧ aloha 🌺 ✧</div>
-                </div>
-
-                <div class="message-stream" id="chatStream">
-                    <div class="msg-card">
-                        <div class="msg-avatar pink"></div>
-                        <div class="msg-details">
-                            <div class="msg-author">KaiCenatFan <span class="msg-time">9:02 PM</span></div>
-                            <div class="msg-body">Chat, is it real? cdcord has 9000 aura right now, no cap 🤫🧏‍♂️</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="chat-input-bar">
-                    <div class="input-box-wrapper">
-                        <input type="text" id="msgInput" placeholder="Type brainrot text here... ✧">
-                        <button class="send-btn" id="sendMsgBtn">Send 🚀</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Connecting straight to your operational script logic file -->
-    <script src="script.js"></script>
-</body>
-</html>
